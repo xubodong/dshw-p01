@@ -86,6 +86,12 @@ $$
 
 *注：Alpha 为日度值；Beta 95% CI 为 Wald 置信区间；详细结果见 `output/capm_results.csv`*
 
+### Beta 系数点图
+
+![Beta点图](output/fig_beta_dot.png)
+
+**解读：** 横轴 Beta 值，纵轴股票名称，误差棒表示 95% 置信区间（Wald方法）。Beta=1 处红色虚线为市场组合参考线。Beta > 1 表示股票波动大于市场（比亚迪、五粮液、长城汽车），Beta < 1 表示波动小于市场（工商银行、中国移动、中国神华）。
+
 ### 讨论问题
 
 **1. Alpha 的经济含义是什么？哪些股票产生了显著的正 Alpha？**

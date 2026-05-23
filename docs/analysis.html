@@ -209,7 +209,8 @@ window.Quarto = {
   <li><a href="#capm-回归分析" id="toc-capm-回归分析" class="nav-link" data-scroll-target="#capm-回归分析"><span class="header-section-number">2.6</span> CAPM 回归分析</a>
   <ul class="collapse">
   <li><a href="#回归结果" id="toc-回归结果" class="nav-link" data-scroll-target="#回归结果"><span class="header-section-number">2.6.1</span> 回归结果</a></li>
-  <li><a href="#讨论问题" id="toc-讨论问题" class="nav-link" data-scroll-target="#讨论问题"><span class="header-section-number">2.6.2</span> 讨论问题</a></li>
+  <li><a href="#beta-系数点图" id="toc-beta-系数点图" class="nav-link" data-scroll-target="#beta-系数点图"><span class="header-section-number">2.6.2</span> Beta 系数点图</a></li>
+  <li><a href="#讨论问题" id="toc-讨论问题" class="nav-link" data-scroll-target="#讨论问题"><span class="header-section-number">2.6.3</span> 讨论问题</a></li>
   </ul></li>
   <li><a href="#结论" id="toc-结论" class="nav-link" data-scroll-target="#结论"><span class="header-section-number">2.7</span> 结论</a></li>
   </ul>
@@ -448,8 +449,18 @@ R_i - R_f = \alpha_i + \beta_i (R_m - R_f) + \varepsilon_i
 </table>
 <p><em>注：Alpha 为日度值；Beta 95% CI 为 Wald 置信区间；详细结果见 <code>output/capm_results.csv</code></em></p>
 </section>
-<section id="讨论问题" class="level3" data-number="2.6.2">
-<h3 data-number="2.6.2" class="anchored" data-anchor-id="讨论问题"><span class="header-section-number">2.6.2</span> 讨论问题</h3>
+<section id="beta-系数点图" class="level3" data-number="2.6.2">
+<h3 data-number="2.6.2" class="anchored" data-anchor-id="beta-系数点图"><span class="header-section-number">2.6.2</span> Beta 系数点图</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="output/fig_beta_dot.png" class="img-fluid figure-img"></p>
+<figcaption>Beta点图</figcaption>
+</figure>
+</div>
+<p><strong>解读：</strong> 横轴 Beta 值，纵轴股票名称，误差棒表示 95% 置信区间（Wald方法）。Beta=1 处红色虚线为市场组合参考线。Beta &gt; 1 表示股票波动大于市场（比亚迪、五粮液、长城汽车），Beta &lt; 1 表示波动小于市场（工商银行、中国移动、中国神华）。</p>
+</section>
+<section id="讨论问题" class="level3" data-number="2.6.3">
+<h3 data-number="2.6.3" class="anchored" data-anchor-id="讨论问题"><span class="header-section-number">2.6.3</span> 讨论问题</h3>
 <p><strong>1. Alpha 的经济含义是什么？哪些股票产生了显著的正 Alpha？</strong></p>
 <p>Alpha 衡量个股超越市场基准的超额收益。正 Alpha &gt; 0 表示该股票在相同市场风险（Beta）下获得了高于预期的回报。从回归结果看： - <strong>比亚迪（α=0.0011, p=0.065）</strong> 接近显著正的 Alpha，反映新能源行业爆发带来的超额收益 - <strong>中国神华（α=0.0008, p=0.054）</strong> 接近显著，反映能源行业周期性获益 - <strong>万科A（α=-0.0014, p=0.0056）</strong> 具有显著负 Alpha，反映房地产行业下行压力 - 其余股票 Alpha 不显著，说明其收益主要由市场风险（Beta）解释</p>
 <p><strong>2. Beta 的行业差异说明了什么？</strong></p>
@@ -1185,42 +1196,48 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a>*注：Alpha 为日度值；Beta 95% CI 为 Wald 置信区间；详细结果见 `output/capm_results.csv`*</span>
 <span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a><span class="fu">### 讨论问题</span></span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a><span class="fu">### Beta 系数点图</span></span>
 <span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a>**1. Alpha 的经济含义是什么？哪些股票产生了显著的正 Alpha？**</span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a><span class="al">![Beta点图](output/fig_beta_dot.png)</span></span>
 <span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a>Alpha 衡量个股超越市场基准的超额收益。正 Alpha &gt; 0 表示该股票在相同市场风险（Beta）下获得了高于预期的回报。从回归结果看：</span>
-<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**比亚迪（α=0.0011, p=0.065）** 接近显著正的 Alpha，反映新能源行业爆发带来的超额收益</span>
-<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**中国神华（α=0.0008, p=0.054）** 接近显著，反映能源行业周期性获益</span>
-<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**万科A（α=-0.0014, p=0.0056）** 具有显著负 Alpha，反映房地产行业下行压力</span>
-<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>其余股票 Alpha 不显著，说明其收益主要由市场风险（Beta）解释</span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a>**解读：** 横轴 Beta 值，纵轴股票名称，误差棒表示 95% 置信区间（Wald方法）。Beta=1 处红色虚线为市场组合参考线。Beta &gt; 1 表示股票波动大于市场（比亚迪、五粮液、长城汽车），Beta &lt; 1 表示波动小于市场（工商银行、中国移动、中国神华）。</span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a><span class="fu">### 讨论问题</span></span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a>**1. Alpha 的经济含义是什么？哪些股票产生了显著的正 Alpha？**</span>
 <span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a>**2. Beta 的行业差异说明了什么？**</span>
-<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a>Beta 反映个股对市场变动的敏感度：</span>
-<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**高 Beta（&gt; 0.8）**：比亚迪（1.26）、长城汽车（1.16）、五粮液（1.26）、贵州茅台（0.95）、招商银行（0.88）、万科A（1.00）、顺丰控股（0.85）—— 与整体市场高度共动</span>
-<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**低 Beta（&lt; 0.5）**：中国神华（0.40）、中国移动（0.29）、工商银行（0.21）—— 防御性行业，与宏观波动关联度低</span>
-<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>这与「周期性 vs 防御性」行业分类一致：汽车/白酒/物流周期性更强，能源/通讯/银行防御性更强</span>
-<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a>**3. R² 的含义是什么？为什么不同股票的 R² 差异很大？**</span>
-<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a>R² 表示个股收益率波动中有多少可以被市场收益率解释。五粮液 R² = 0.48 说明约 48% 的波动来自市场因素，剩余 52% 来自公司/行业特异性因素。R² 差异的原因：</span>
-<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>白酒行业（茅台 R²=0.43，五粮液 R²=0.48）受市场情绪影响大，拟合度较高</span>
-<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>银行股招商银行 R²=0.37，拟合度中等，受行业政策影响</span>
-<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>中国移动 R²=0.045 极低，可能因为样本期内表现与大盘脱钩，或受港股联动影响</span>
-<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>大盘蓝筹股受宏观经济和自身经营双重影响，单一市场因子解释力有限</span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a>Alpha 衡量个股超越市场基准的超额收益。正 Alpha &gt; 0 表示该股票在相同市场风险（Beta）下获得了高于预期的回报。从回归结果看：</span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**比亚迪（α=0.0011, p=0.065）** 接近显著正的 Alpha，反映新能源行业爆发带来的超额收益</span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**中国神华（α=0.0008, p=0.054）** 接近显著，反映能源行业周期性获益</span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**万科A（α=-0.0014, p=0.0056）** 具有显著负 Alpha，反映房地产行业下行压力</span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>其余股票 Alpha 不显著，说明其收益主要由市场风险（Beta）解释</span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a>**2. Beta 的行业差异说明了什么？**</span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a>Beta 反映个股对市场变动的敏感度：</span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**高 Beta（&gt; 0.8）**：比亚迪（1.26）、长城汽车（1.16）、五粮液（1.26）、贵州茅台（0.95）、招商银行（0.88）、万科A（1.00）、顺丰控股（0.85）—— 与整体市场高度共动</span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**低 Beta（&lt; 0.5）**：中国神华（0.40）、中国移动（0.29）、工商银行（0.21）—— 防御性行业，与宏观波动关联度低</span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>这与「周期性 vs 防御性」行业分类一致：汽车/白酒/物流周期性更强，能源/通讯/银行防御性更强</span>
+<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a>**3. R² 的含义是什么？为什么不同股票的 R² 差异很大？**</span>
 <span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a><span class="fu">## 结论</span></span>
-<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>A 股市场呈现典型的「尖峰厚尾」收益率分布特征</span>
-<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>行业内部相关性高，跨行业相关性低 — 支持分散化投资策略</span>
-<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>CAPM 模型中，新能源汽车行业接近显著正 Alpha，地产行业显著负 Alpha</span>
-<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>银行和通讯行业 Beta 较低，适合作为组合的防御性配置</span>
-<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>单一市场因子（CAPM）对 A 股个股的解释力有限（R² 普遍 &lt; 0.5），多因子模型（如 Fama-French）可能更合适</span>
+<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a>R² 表示个股收益率波动中有多少可以被市场收益率解释。五粮液 R² = 0.48 说明约 48% 的波动来自市场因素，剩余 52% 来自公司/行业特异性因素。R² 差异的原因：</span>
+<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>白酒行业（茅台 R²=0.43，五粮液 R²=0.48）受市场情绪影响大，拟合度较高</span>
+<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>银行股招商银行 R²=0.37，拟合度中等，受行业政策影响</span>
+<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>中国移动 R²=0.045 极低，可能因为样本期内表现与大盘脱钩，或受港股联动影响</span>
+<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>大盘蓝筹股受宏观经济和自身经营双重影响，单一市场因子解释力有限</span>
+<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a><span class="fu">## 结论</span></span>
 <span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">← 返回项目总览</span><span class="co">](index.qmd)</span></span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>A 股市场呈现典型的「尖峰厚尾」收益率分布特征</span>
+<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>行业内部相关性高，跨行业相关性低 — 支持分散化投资策略</span>
+<span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>CAPM 模型中，新能源汽车行业接近显著正 Alpha，地产行业显著负 Alpha</span>
+<span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>银行和通讯行业 Beta 较低，适合作为组合的防御性配置</span>
+<span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>单一市场因子（CAPM）对 A 股个股的解释力有限（R² 普遍 &lt; 0.5），多因子模型（如 Fama-French）可能更合适</span>
+<span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">← 返回项目总览</span><span class="co">](index.qmd)</span></span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
