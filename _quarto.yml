@@ -8,17 +8,31 @@ book:
   author: "许博东 (25210269)"
   date: "2026-05-23"
   language: zh
+
   chapters:
     - index.qmd
     - analysis.qmd
-  page-footer:
-    center: "Copyright © 2026 许博东 | DS2026 课程作业"
+
   sidebar:
     style: docked
     background: light
+    logo: ""
+    tools:
+      - icon: github
+        href: https://github.com/xubodong/dshw-p01
+        text: GitHub 仓库
+      - icon: file-earmark-text
+        href: https://xubodong.github.io/dshw-p01/report.html
+        text: 完整报告 (HTML)
+
+  page-footer:
+    left: "© 2026 许博东 | DS2026 课程作业 P02a"
+    right: "Built with Quarto"
+
   search: true
   repo-url: https://github.com/xubodong/dshw-p01
   repo-actions: [edit, source]
+  page-navigation: true
 
 format:
   html:
@@ -29,7 +43,7 @@ format:
     code-fold: true
     code-tools: true
     toc: true
+    toc-depth: 3
     number-sections: true
-    include-in-header:
-      text: |
-        <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    mainfont: "Microsoft YaHei, SimHei, sans-serif"
+    monofont: "Cascadia Code, Fira Code, Consolas, monospace"

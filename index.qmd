@@ -4,53 +4,70 @@ title: "金融数据获取与清洗 — 项目总览"
 
 ## 项目简介
 
-本项目是 DS2026 课程作业 P02a **「金融数据获取、清洗与分析」** 的完整实现，涵盖从数据下载、清洗、合并到可视化与 CAPM 回归分析的完整流程。
+本项目是 **DS2026 课程作业 P02a「金融数据获取、清洗与分析」** 的完整实现，涵盖数据下载、清洗、合并、可视化与 CAPM 回归分析的全流程。
+
+::: {.callout-tip}
+### 快速导航
+
+- **完整分析报告** → [report.html](https://xubodong.github.io/dshw-p01/report.html)（嵌入图片，可独立查看）
+- **GitHub 仓库** → [xubodong/dshw-p01](https://github.com/xubodong/dshw-p01)
+- **分析结果** → [analysis.qmd](analysis.qmd)
+:::
 
 ### 研究目标
 
-- 获取 10 只 A 股股票的日线行情数据（2020-2026）
-- 完成 6 步标准化数据清洗流程
-- 通过描述统计、可视化与 CAPM 模型分析股票收益特征
+- 获取 **10 只 A 股** 的日线行情数据（2020-01-01 ~ 2026-05-22）
+- 完成 **6 步标准化数据清洗流程**
+- 通过描述统计、可视化与 **CAPM 回归模型** 分析股票收益特征
+- 支持 **CSV / Parquet / SQLite** 三种数据存储格式
+
+---
 
 ## 数据概览
 
 ### 股票列表
 
-| 代码   | 名称     | 行业   | 说明                 |
-|--------|----------|--------|----------------------|
-| 601398 | 工商银行 | 银行   | 最大商业银行          |
-| 600036 | 招商银行 | 银行   | 零售银行龙头          |
-| 002594 | 比亚迪   | 汽车   | 新能源车领军          |
-| 601633 | 长城汽车 | 汽车   | 自主品牌 SUV 龙头     |
-| 000002 | 万科A    | 房地产 | 地产龙头              |
-| 600519 | 贵州茅台 | 白酒   | A股市值第一           |
-| 000858 | 五粮液   | 白酒   | 高端白酒第二           |
-| 601088 | 中国神华 | 能源   | 煤炭巨头              |
-| 600941 | 中国移动 | 通讯   | 运营商龙头            |
-| 002352 | 顺丰控股 | 物流   | 快递龙头              |
+| 代码 | 名称 | 行业 | 特征 |
+|------|------|------|------|
+| 601398 | 工商银行 | 银行 | 最大商业银行，低波动 |
+| 600036 | 招商银行 | 银行 | 零售银行龙头 |
+| 002594 | 比亚迪 | 汽车 | 新能源车领军，高成长 |
+| 601633 | 长城汽车 | 汽车 | 自主品牌 SUV 龙头 |
+| 000002 | 万科A | 房地产 | 地产龙头，周期下行 |
+| 600519 | 贵州茅台 | 白酒 | A股市值第一 |
+| 000858 | 五粮液 | 白酒 | 高端白酒第二 |
+| 601088 | 中国神华 | 能源 | 煤炭巨头，防御性 |
+| 600941 | 中国移动 | 通讯 | 运营商龙头 |
+| 002352 | 顺丰控股 | 物流 | 快递龙头 |
 
 ### 数据来源
 
-| 数据类型     | 来源        | 说明                       |
-|-------------|------------|----------------------------|
-| 个股日线     | BaoStock   | 前复权OHLCVA + 换手率等      |
-| 沪深300指数  | BaoStock   | 日线收盘价                  |
-| CPI / M2    | AKShare    | 国家统计局月度宏观数据       |
-| 财务指标     | 合成数据    | ROE/净利率/毛利率等（备用）   |
+| 数据类型 | 来源 | 说明 |
+|---------|------|------|
+| 个股日线（OHLCVA） | **BaoStock** | 前复权价格、成交量、成交额、换手率等 |
+| 沪深300 指数 | **BaoStock** | 日线收盘价，CAPM 市场组合代理 |
+| CPI 月度同比 | **AKShare** | 国家统计局宏观数据 |
+| M2 月度同比 | **AKShare** | 货币供应量数据 |
+| 财务指标 | 合成数据 | ROE / 净利率 / 毛利率（API 受限备用） |
 
-### 数据量
+### 数据规模
 
-- **时间范围**：2020-01-01 ~ 2026-05-22
-- **股票数量**：10 只
-- **交易日总数**：~15,000 条（清洗后）
+| 维度 | 数值 |
+|------|------|
+| 时间范围 | 2020-01-01 ~ 2026-05-22 |
+| 股票数量 | 10 只（覆盖 7 个行业） |
+| 日度观测 | ~15,000 条（清洗后） |
+| 输出图表 | 5 张（含 CAPM Beta 点图） |
+
+---
 
 ## 项目结构
 
 ```
 dshw-p01/
-├── 01_download.ipynb      # 数据下载
-├── 02_clean.ipynb         # 数据清洗（6步 + 三格式存储）
-├── 03_analysis.ipynb      # 分析可视化 + CAPM回归
+├── 01_download.ipynb      # 数据下载（BaoStock + AKShare）
+├── 02_clean.ipynb         # 6步清洗 + 三格式存储（CSV/Parquet/SQLite）
+├── 03_analysis.ipynb      # 描述统计 + 5张图 + CAPM回归 + 讨论
 ├── data/
 │   ├── stock/             # 原始股票 CSV
 │   ├── index/             # 指数数据
@@ -58,52 +75,80 @@ dshw-p01/
 │   ├── finance/           # 财务数据
 │   ├── clean/             # 清洗后数据
 │   └── combined/          # 合并数据（CSV + Parquet + SQLite）
-├── output/                # 图表输出（4张图 + CAPM回归表）
-├── report.html            # 完整分析报告
+├── output/                # 图表输出 + CAPM 回归表
+├── report.html            # 完整分析报告（图片 base64 嵌入）
+├── docs/                  # Quarto 渲染 → GitHub Pages 站点
 ├── README.md              # 项目说明
 ├── _quarto.yml            # Quarto 图书配置
 ├── index.qmd              # 本页面
-├── analysis.qmd           # 分析结果页
-└── docs/                  # GitHub Pages 静态站点
+└── analysis.qmd           # 分析结果页
 ```
+
+---
 
 ## 运行方式
 
+::: {.callout-note}
+### 环境要求
+
+Python 3.11+，依赖包见 `requirements.txt`。首次运行需安装 BaoStock 和 AKShare。
+:::
+
 ```bash
-# 安装依赖
+# ① 安装依赖
 pip install -r requirements.txt
 
-# 依次运行三个 Notebook
+# ② 依次运行三个 Notebook
 jupyter nbconvert --to notebook --execute --inplace 01_download.ipynb
 jupyter nbconvert --to notebook --execute --inplace 02_clean.ipynb
 jupyter nbconvert --to notebook --execute --inplace 03_analysis.ipynb
 
-# 生成报告
-jupyter nbconvert --to html 03_analysis.ipynb --output report.html
+# ③ 生成最终报告
+python -m jupyter nbconvert --to html 03_analysis.ipynb \
+    --output report.html --no-input --embed-images
 
-# 生成在线图书
+# ④ 生成在线图书
 quarto render
 ```
 
-## 存储方式
+---
 
-本项目数据以三种格式保存，便于不同场景使用：
+## 存储方式对比
 
-| 格式     | 文件                         | 大小     | 适用场景           |
-|---------|------------------------------|----------|--------------------|
-| CSV     | `data/combined/combined_data.csv` | ~2.6MB | 通用 / 人类可读    |
-| Parquet | `data/combined/combined_data.parquet` | ~0.9MB | 大数据 / 列式读取  |
-| SQLite  | `data/combined/combined_data.db`    | ~2.3MB | 数据库 / SQL 查询  |
+| 格式 | 文件 | 大小 | 适用场景 |
+|------|------|------|----------|
+| **CSV** | `data/combined/combined_data.csv` | ~2.6 MB | 通用、人类可读 |
+| **Parquet** | `data/combined/combined_data.parquet` | ~0.9 MB | 大数据、列式读取、速度快 |
+| **SQLite** | `data/combined/combined_data.db` | ~2.3 MB | SQL 查询、多表关联 |
+
+::: {.callout-tip}
+三种格式已全部在 `02_clean.ipynb` 中生成并对比，详见 Notebook 输出。
+:::
+
+---
 
 ## 分析框架
 
 ```{mermaid}
 graph LR
-    A[10只A股日线] --> B[6步数据清洗]
-    B --> C[描述统计]
-    B --> D[可视化4图]
-    B --> E[CAPM回归]
-    C --> F[分析报告]
+    A["📊 10只A股日线<br/>BaoStock"] --> B["🔧 6步清洗<br/>缺失→类型→去重→异常"]
+    B --> C["📈 描述统计"]
+    B --> D["📉 可视化 × 5"]
+    B --> E["📐 CAPM回归"]
+    C --> F["📄 分析报告"]
     D --> F
     E --> F
 ```
+
+---
+
+## 核心发现预览
+
+| 发现 | 说明 |
+|------|------|
+| **尖峰厚尾** | A股日收益率峰度 ~8.5，远高于正态分布（3.0） |
+| **行业聚类** | 白酒/银行行业内相关性 > 0.5，跨行业可低至负值 |
+| **Beta 分化** | 比亚迪 β=1.26（激进）vs 工商银行 β=0.21（防御） |
+| **CAPM 解释力有限** | R² 普遍 < 0.5，单因子模型需扩展 |
+
+完整分析结果 → [查看分析页面](analysis.qmd)

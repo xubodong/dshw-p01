@@ -111,44 +111,53 @@ jupyter nbconvert --to html 03_analysis.ipynb --output report.html
 
 ---
 
-## 五、中文显示处理
+## 五、在线查看
 
-本作业所有图表的中文显示均通过以下方式确保正常：
+- **完整分析报告**：[https://xubodong.github.io/dshw-p01/report.html](https://xubodong.github.io/dshw-p01/report.html)
+- **Quarto 在线图书**：[https://xubodong.github.io/dshw-p01/docs/index.html](https://xubodong.github.io/dshw-p01/docs/index.html)
 
+## 六、中文显示处理
+
+本作业所有图表的中文显示均通过以下两步确保正常：
+
+**① 字体文件路径加载（绕过 Windows 缓存坑）**：
 ```python
 import matplotlib.font_manager as fm
-font_list = [f.name for f in fm.fontManager.ttflist]
-chinese_fonts = [f for f in font_list if any(
-    k in f for k in ["SimHei","Microsoft YaHei","KaiTi","SimSun","Noto Sans CJK"]
-)]
-plt.rcParams["font.sans-serif"] = [chinese_fonts[0]] if chinese_fonts else ["SimHei"]
-plt.rcParams["axes.unicode_minus"] = False
+font_prop = fm.FontProperties(fname=r'C:\Windows\Fonts\simhei.ttf')
+plt.rcParams['axes.unicode_minus'] = False
 ```
 
-在 Windows 系统（SimHei 字体）和 macOS 系统（PingFang SC / STHeiti）上测试通过。
+**② 每个元素显式传入 fontproperties**：
+```python
+ax.set_title('标题', fontproperties=font_prop)
+ax.set_xlabel('X轴', fontproperties=font_prop)
+ax.legend(prop=font_prop)
+for label in ax.get_xticklabels():
+    label.set_fontproperties(font_prop)
+```
 
 ---
 
-## 六、CAPM 回归结果摘要
+## 七、CAPM 回归结果摘要
 
 | 股票 | 名称 | α（截距） | β（斜率） | R² |
 |------|------|-----------|-----------|-----|
-| 601398 | 工商银行 | 0.00058 | 0.5248 | 0.291 |
-| 600036 | 招商银行 | 0.00077 | 0.8797 | 0.432 |
-| 002594 | 比亚迪 | 0.00130 | 1.1619 | 0.341 |
-| 601633 | 长城汽车 | 0.00058 | 1.1608 | 0.301 |
-| 000002 | 万科A | -0.00008 | 0.7958 | 0.291 |
-| 600519 | 贵州茅台 | 0.00085 | 0.3381 | 0.089 |
-| 000858 | 五粮液 | 0.00076 | 0.7342 | 0.231 |
-| 601088 | 中国神华 | 0.00062 | 0.4028 | 0.191 |
-| 600941 | 中国移动 | 0.00030 | 0.2851 | 0.101 |
-| 002352 | 顺丰控股 | 0.00045 | 0.9234 | 0.271 |
+| 601398 | 工商银行 | 0.0003 | 0.2133 | 0.062 |
+| 600036 | 招商银行 | 0.0001 | 0.8831 | 0.368 |
+| 002594 | 比亚迪 | 0.0011 | 1.2606 | 0.306 |
+| 601633 | 长城汽车 | 0.0004 | 1.1629 | 0.240 |
+| 000002 | 万科A | -0.0014 | 0.9958 | 0.269 |
+| 600519 | 贵州茅台 | 0.0001 | 0.9525 | 0.426 |
+| 000858 | 五粮液 | -0.0003 | 1.2593 | 0.480 |
+| 601088 | 中国神华 | 0.0008 | 0.3974 | 0.063 |
+| 600941 | 中国移动 | 0.0006 | 0.2937 | 0.045 |
+| 002352 | 顺丰控股 | -0.0001 | 0.8542 | 0.252 |
 
 > 详细结果见 `output/capm_results.csv`。
 
 ---
 
-## 七、GitHub 仓库
+## 八、GitHub 仓库
 
 > ⚠️ **作业提交前请完成以下步骤**：
 > 1. 在 GitHub 新建仓库 `dshw-p01`
@@ -167,7 +176,7 @@ git push -u origin main
 
 ---
 
-## 八、作业自查清单
+## 九、作业自查清单
 
 - [x] 项目根目录名称为 `dshw-p01`，目录结构由 Python 代码自动创建
 - [x] `README.md` 完整，含股票列表、数据来源、存储方式说明、GitHub 仓库链接、运行步骤
@@ -183,7 +192,7 @@ git push -u origin main
 
 ---
 
-## 九、附录：主要 Python 包版本
+## 十、附录：主要 Python 包版本
 
 ```
 Python==3.13.13

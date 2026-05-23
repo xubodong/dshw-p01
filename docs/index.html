@@ -76,8 +76,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b53751a350365c71b6c909e95f209ed1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-b44833231f15a60e54f6db525208403a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-ff88691b49d15cd4112695d6808f2aa1.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-ba241b4dcfca84a7083b0905e344506c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-2e0de29bea9d725c04bcb3f3893e3ec0.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -108,7 +108,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-diagram/mermaid.min.js"></script>
 <script src="site_libs/quarto-diagram/mermaid-init.js"></script>
 <link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
 
 
 <link rel="stylesheet" href="style.css">
@@ -139,7 +138,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">P02a 金融数据获取与清洗分析</a> 
-        <div class="sidebar-tools-main">
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/xubodong/dshw-p01" title="GitHub 仓库" class="quarto-navigation-tool px-1" aria-label="GitHub 仓库"><i class="bi bi-github"></i></a>
+    <a href="https://xubodong.github.io/dshw-p01/report.html" title="完整报告 (HTML)" class="quarto-navigation-tool px-1" aria-label="完整报告 (HTML)"><i class="bi bi-file-earmark-text"></i></a>
     <a href="https://github.com/xubodong/dshw-p01" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
@@ -182,12 +183,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#股票列表" id="toc-股票列表" class="nav-link" data-scroll-target="#股票列表"><span class="header-section-number">0.2.1</span> 股票列表</a></li>
   <li><a href="#数据来源" id="toc-数据来源" class="nav-link" data-scroll-target="#数据来源"><span class="header-section-number">0.2.2</span> 数据来源</a></li>
-  <li><a href="#数据量" id="toc-数据量" class="nav-link" data-scroll-target="#数据量"><span class="header-section-number">0.2.3</span> 数据量</a></li>
+  <li><a href="#数据规模" id="toc-数据规模" class="nav-link" data-scroll-target="#数据规模"><span class="header-section-number">0.2.3</span> 数据规模</a></li>
   </ul></li>
   <li><a href="#项目结构" id="toc-项目结构" class="nav-link" data-scroll-target="#项目结构"><span class="header-section-number">0.3</span> 项目结构</a></li>
   <li><a href="#运行方式" id="toc-运行方式" class="nav-link" data-scroll-target="#运行方式"><span class="header-section-number">0.4</span> 运行方式</a></li>
-  <li><a href="#存储方式" id="toc-存储方式" class="nav-link" data-scroll-target="#存储方式"><span class="header-section-number">0.5</span> 存储方式</a></li>
+  <li><a href="#存储方式对比" id="toc-存储方式对比" class="nav-link" data-scroll-target="#存储方式对比"><span class="header-section-number">0.5</span> 存储方式对比</a></li>
   <li><a href="#分析框架" id="toc-分析框架" class="nav-link" data-scroll-target="#分析框架"><span class="header-section-number">0.6</span> 分析框架</a></li>
+  <li><a href="#核心发现预览" id="toc-核心发现预览" class="nav-link" data-scroll-target="#核心发现预览"><span class="header-section-number">0.7</span> 核心发现预览</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/xubodong/dshw-p01/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/xubodong/dshw-p01/blob/main/index.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
     </div>
@@ -228,14 +230,33 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="项目简介" class="level2" data-number="0.1">
 <h2 data-number="0.1" class="anchored" data-anchor-id="项目简介"><span class="header-section-number">0.1</span> 项目简介</h2>
-<p>本项目是 DS2026 课程作业 P02a <strong>「金融数据获取、清洗与分析」</strong> 的完整实现，涵盖从数据下载、清洗、合并到可视化与 CAPM 回归分析的完整流程。</p>
+<p>本项目是 <strong>DS2026 课程作业 P02a「金融数据获取、清洗与分析」</strong> 的完整实现，涵盖数据下载、清洗、合并、可视化与 CAPM 回归分析的全流程。</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+快速导航
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>完整分析报告</strong> → <a href="https://xubodong.github.io/dshw-p01/report.html">report.html</a>（嵌入图片，可独立查看）</li>
+<li><strong>GitHub 仓库</strong> → <a href="https://github.com/xubodong/dshw-p01">xubodong/dshw-p01</a></li>
+<li><strong>分析结果</strong> → <a href="./analysis.html">analysis.qmd</a></li>
+</ul>
+</div>
+</div>
 <section id="研究目标" class="level3" data-number="0.1.1">
 <h3 data-number="0.1.1" class="anchored" data-anchor-id="研究目标"><span class="header-section-number">0.1.1</span> 研究目标</h3>
 <ul>
-<li>获取 10 只 A 股股票的日线行情数据（2020-2026）</li>
-<li>完成 6 步标准化数据清洗流程</li>
-<li>通过描述统计、可视化与 CAPM 模型分析股票收益特征</li>
+<li>获取 <strong>10 只 A 股</strong> 的日线行情数据（2020-01-01 ~ 2026-05-22）</li>
+<li>完成 <strong>6 步标准化数据清洗流程</strong></li>
+<li>通过描述统计、可视化与 <strong>CAPM 回归模型</strong> 分析股票收益特征</li>
+<li>支持 <strong>CSV / Parquet / SQLite</strong> 三种数据存储格式</li>
 </ul>
+<hr>
 </section>
 </section>
 <section id="数据概览" class="level2" data-number="0.2">
@@ -248,7 +269,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <th>代码</th>
 <th>名称</th>
 <th>行业</th>
-<th>说明</th>
+<th>特征</th>
 </tr>
 </thead>
 <tbody>
@@ -256,7 +277,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>601398</td>
 <td>工商银行</td>
 <td>银行</td>
-<td>最大商业银行</td>
+<td>最大商业银行，低波动</td>
 </tr>
 <tr class="even">
 <td>600036</td>
@@ -268,7 +289,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>002594</td>
 <td>比亚迪</td>
 <td>汽车</td>
-<td>新能源车领军</td>
+<td>新能源车领军，高成长</td>
 </tr>
 <tr class="even">
 <td>601633</td>
@@ -280,7 +301,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>000002</td>
 <td>万科A</td>
 <td>房地产</td>
-<td>地产龙头</td>
+<td>地产龙头，周期下行</td>
 </tr>
 <tr class="even">
 <td>600519</td>
@@ -298,7 +319,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>601088</td>
 <td>中国神华</td>
 <td>能源</td>
-<td>煤炭巨头</td>
+<td>煤炭巨头，防御性</td>
 </tr>
 <tr class="odd">
 <td>600941</td>
@@ -318,6 +339,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="数据来源" class="level3" data-number="0.2.2">
 <h3 data-number="0.2.2" class="anchored" data-anchor-id="数据来源"><span class="header-section-number">0.2.2</span> 数据来源</h3>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 42%">
+<col style="width: 28%">
+<col style="width: 28%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>数据类型</th>
@@ -327,43 +353,70 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </thead>
 <tbody>
 <tr class="odd">
-<td>个股日线</td>
-<td>BaoStock</td>
-<td>前复权OHLCVA + 换手率等</td>
+<td>个股日线（OHLCVA）</td>
+<td><strong>BaoStock</strong></td>
+<td>前复权价格、成交量、成交额、换手率等</td>
 </tr>
 <tr class="even">
-<td>沪深300指数</td>
-<td>BaoStock</td>
-<td>日线收盘价</td>
+<td>沪深300 指数</td>
+<td><strong>BaoStock</strong></td>
+<td>日线收盘价，CAPM 市场组合代理</td>
 </tr>
 <tr class="odd">
-<td>CPI / M2</td>
-<td>AKShare</td>
-<td>国家统计局月度宏观数据</td>
+<td>CPI 月度同比</td>
+<td><strong>AKShare</strong></td>
+<td>国家统计局宏观数据</td>
 </tr>
 <tr class="even">
+<td>M2 月度同比</td>
+<td><strong>AKShare</strong></td>
+<td>货币供应量数据</td>
+</tr>
+<tr class="odd">
 <td>财务指标</td>
 <td>合成数据</td>
-<td>ROE/净利率/毛利率等（备用）</td>
+<td>ROE / 净利率 / 毛利率（API 受限备用）</td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="数据量" class="level3" data-number="0.2.3">
-<h3 data-number="0.2.3" class="anchored" data-anchor-id="数据量"><span class="header-section-number">0.2.3</span> 数据量</h3>
-<ul>
-<li><strong>时间范围</strong>：2020-01-01 ~ 2026-05-22</li>
-<li><strong>股票数量</strong>：10 只</li>
-<li><strong>交易日总数</strong>：~15,000 条（清洗后）</li>
-</ul>
+<section id="数据规模" class="level3" data-number="0.2.3">
+<h3 data-number="0.2.3" class="anchored" data-anchor-id="数据规模"><span class="header-section-number">0.2.3</span> 数据规模</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>维度</th>
+<th>数值</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>时间范围</td>
+<td>2020-01-01 ~ 2026-05-22</td>
+</tr>
+<tr class="even">
+<td>股票数量</td>
+<td>10 只（覆盖 7 个行业）</td>
+</tr>
+<tr class="odd">
+<td>日度观测</td>
+<td>~15,000 条（清洗后）</td>
+</tr>
+<tr class="even">
+<td>输出图表</td>
+<td>5 张（含 CAPM Beta 点图）</td>
+</tr>
+</tbody>
+</table>
+<hr>
 </section>
 </section>
 <section id="项目结构" class="level2" data-number="0.3">
 <h2 data-number="0.3" class="anchored" data-anchor-id="项目结构"><span class="header-section-number">0.3</span> 项目结构</h2>
 <pre><code>dshw-p01/
-├── 01_download.ipynb      # 数据下载
-├── 02_clean.ipynb         # 数据清洗（6步 + 三格式存储）
-├── 03_analysis.ipynb      # 分析可视化 + CAPM回归
+├── 01_download.ipynb      # 数据下载（BaoStock + AKShare）
+├── 02_clean.ipynb         # 6步清洗 + 三格式存储（CSV/Parquet/SQLite）
+├── 03_analysis.ipynb      # 描述统计 + 5张图 + CAPM回归 + 讨论
 ├── data/
 │   ├── stock/             # 原始股票 CSV
 │   ├── index/             # 指数数据
@@ -371,39 +424,54 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 │   ├── finance/           # 财务数据
 │   ├── clean/             # 清洗后数据
 │   └── combined/          # 合并数据（CSV + Parquet + SQLite）
-├── output/                # 图表输出（4张图 + CAPM回归表）
-├── report.html            # 完整分析报告
+├── output/                # 图表输出 + CAPM 回归表
+├── report.html            # 完整分析报告（图片 base64 嵌入）
+├── docs/                  # Quarto 渲染 → GitHub Pages 站点
 ├── README.md              # 项目说明
 ├── _quarto.yml            # Quarto 图书配置
 ├── index.qmd              # 本页面
-├── analysis.qmd           # 分析结果页
-└── docs/                  # GitHub Pages 静态站点</code></pre>
+└── analysis.qmd           # 分析结果页</code></pre>
+<hr>
 </section>
 <section id="运行方式" class="level2" data-number="0.4">
 <h2 data-number="0.4" class="anchored" data-anchor-id="运行方式"><span class="header-section-number">0.4</span> 运行方式</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 安装依赖</span></span>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+环境要求
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Python 3.11+，依赖包见 <code>requirements.txt</code>。首次运行需安装 BaoStock 和 AKShare。</p>
+</div>
+</div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ① 安装依赖</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">-r</span> requirements.txt</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 依次运行三个 Notebook</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># ② 依次运行三个 Notebook</span></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="ex">jupyter</span> nbconvert <span class="at">--to</span> notebook <span class="at">--execute</span> <span class="at">--inplace</span> 01_download.ipynb</span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="ex">jupyter</span> nbconvert <span class="at">--to</span> notebook <span class="at">--execute</span> <span class="at">--inplace</span> 02_clean.ipynb</span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="ex">jupyter</span> nbconvert <span class="at">--to</span> notebook <span class="at">--execute</span> <span class="at">--inplace</span> 03_analysis.ipynb</span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 生成报告</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="ex">jupyter</span> nbconvert <span class="at">--to</span> html 03_analysis.ipynb <span class="at">--output</span> report.html</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 生成在线图书</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># ③ 生成最终报告</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> <span class="at">-m</span> jupyter nbconvert <span class="at">--to</span> html 03_analysis.ipynb <span class="dt">\</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">--output</span> report.html <span class="at">--no-input</span> <span class="at">--embed-images</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co"># ④ 生成在线图书</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
 </section>
-<section id="存储方式" class="level2" data-number="0.5">
-<h2 data-number="0.5" class="anchored" data-anchor-id="存储方式"><span class="header-section-number">0.5</span> 存储方式</h2>
-<p>本项目数据以三种格式保存，便于不同场景使用：</p>
+<section id="存储方式对比" class="level2" data-number="0.5">
+<h2 data-number="0.5" class="anchored" data-anchor-id="存储方式对比"><span class="header-section-number">0.5</span> 存储方式对比</h2>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 13%">
-<col style="width: 43%">
-<col style="width: 14%">
-<col style="width: 28%">
+<col style="width: 21%">
+<col style="width: 21%">
+<col style="width: 21%">
+<col style="width: 35%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -415,25 +483,39 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </thead>
 <tbody>
 <tr class="odd">
-<td>CSV</td>
+<td><strong>CSV</strong></td>
 <td><code>data/combined/combined_data.csv</code></td>
-<td>~2.6MB</td>
-<td>通用 / 人类可读</td>
+<td>~2.6 MB</td>
+<td>通用、人类可读</td>
 </tr>
 <tr class="even">
-<td>Parquet</td>
+<td><strong>Parquet</strong></td>
 <td><code>data/combined/combined_data.parquet</code></td>
-<td>~0.9MB</td>
-<td>大数据 / 列式读取</td>
+<td>~0.9 MB</td>
+<td>大数据、列式读取、速度快</td>
 </tr>
 <tr class="odd">
-<td>SQLite</td>
+<td><strong>SQLite</strong></td>
 <td><code>data/combined/combined_data.db</code></td>
-<td>~2.3MB</td>
-<td>数据库 / SQL 查询</td>
+<td>~2.3 MB</td>
+<td>SQL 查询、多表关联</td>
 </tr>
 </tbody>
 </table>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>三种格式已全部在 <code>02_clean.ipynb</code> 中生成并对比，详见 Notebook 输出。</p>
+</div>
+</div>
+<hr>
 </section>
 <section id="分析框架" class="level2" data-number="0.6">
 <h2 data-number="0.6" class="anchored" data-anchor-id="分析框架"><span class="header-section-number">0.6</span> 分析框架</h2>
@@ -443,11 +525,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p></p><figure class="figure"><p></p>
 <div>
 <pre class="mermaid mermaid-js">graph LR
-    A[10只A股日线] --&gt; B[6步数据清洗]
-    B --&gt; C[描述统计]
-    B --&gt; D[可视化4图]
-    B --&gt; E[CAPM回归]
-    C --&gt; F[分析报告]
+    A["📊 10只A股日线&lt;br/&gt;BaoStock"] --&gt; B["🔧 6步清洗&lt;br/&gt;缺失→类型→去重→异常"]
+    B --&gt; C["📈 描述统计"]
+    B --&gt; D["📉 可视化 × 5"]
+    B --&gt; E["📐 CAPM回归"]
+    C --&gt; F["📄 分析报告"]
     D --&gt; F
     E --&gt; F
 </pre>
@@ -456,6 +538,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+<hr>
+</section>
+<section id="核心发现预览" class="level2" data-number="0.7">
+<h2 data-number="0.7" class="anchored" data-anchor-id="核心发现预览"><span class="header-section-number">0.7</span> 核心发现预览</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>发现</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>尖峰厚尾</strong></td>
+<td>A股日收益率峰度 ~8.5，远高于正态分布（3.0）</td>
+</tr>
+<tr class="even">
+<td><strong>行业聚类</strong></td>
+<td>白酒/银行行业内相关性 &gt; 0.5，跨行业可低至负值</td>
+</tr>
+<tr class="odd">
+<td><strong>Beta 分化</strong></td>
+<td>比亚迪 β=1.26（激进）vs 工商银行 β=0.21（防御）</td>
+</tr>
+<tr class="even">
+<td><strong>CAPM 解释力有限</strong></td>
+<td>R² 普遍 &lt; 0.5，单因子模型需扩展</td>
+</tr>
+</tbody>
+</table>
+<p>完整分析结果 → <a href="./analysis.html">查看分析页面</a></p>
 
 
 <!-- -->
@@ -1090,123 +1203,168 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">## 项目简介</span></span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>本项目是 DS2026 课程作业 P02a **「金融数据获取、清洗与分析」** 的完整实现，涵盖从数据下载、清洗、合并到可视化与 CAPM 回归分析的完整流程。</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>本项目是 **DS2026 课程作业 P02a「金融数据获取、清洗与分析」** 的完整实现，涵盖数据下载、清洗、合并、可视化与 CAPM 回归分析的全流程。</span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="fu">### 研究目标</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>获取 10 只 A 股股票的日线行情数据（2020-2026）</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>完成 6 步标准化数据清洗流程</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>通过描述统计、可视化与 CAPM 模型分析股票收益特征</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="fu">## 数据概览</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="fu">### 快速导航</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**完整分析报告** → <span class="co">[</span><span class="ot">report.html</span><span class="co">](https://xubodong.github.io/dshw-p01/report.html)</span>（嵌入图片，可独立查看）</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**GitHub 仓库** → <span class="co">[</span><span class="ot">xubodong/dshw-p01</span><span class="co">](https://github.com/xubodong/dshw-p01)</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**分析结果** → <span class="co">[</span><span class="ot">analysis.qmd</span><span class="co">](analysis.qmd)</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="fu">### 股票列表</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="fu">### 研究目标</span></span>
 <span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>| 代码   | 名称     | 行业   | 说明                 |</span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>|--------|----------|--------|----------------------|</span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>| 601398 | 工商银行 | 银行   | 最大商业银行          |</span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>| 600036 | 招商银行 | 银行   | 零售银行龙头          |</span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>| 002594 | 比亚迪   | 汽车   | 新能源车领军          |</span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>| 601633 | 长城汽车 | 汽车   | 自主品牌 SUV 龙头     |</span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>| 000002 | 万科A    | 房地产 | 地产龙头              |</span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>| 600519 | 贵州茅台 | 白酒   | A股市值第一           |</span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>| 000858 | 五粮液   | 白酒   | 高端白酒第二           |</span>
-<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>| 601088 | 中国神华 | 能源   | 煤炭巨头              |</span>
-<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>| 600941 | 中国移动 | 通讯   | 运营商龙头            |</span>
-<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>| 002352 | 顺丰控股 | 物流   | 快递龙头              |</span>
-<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a><span class="fu">### 数据来源</span></span>
-<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>| 数据类型     | 来源        | 说明                       |</span>
-<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>|-------------|------------|----------------------------|</span>
-<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>| 个股日线     | BaoStock   | 前复权OHLCVA + 换手率等      |</span>
-<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>| 沪深300指数  | BaoStock   | 日线收盘价                  |</span>
-<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>| CPI / M2    | AKShare    | 国家统计局月度宏观数据       |</span>
-<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>| 财务指标     | 合成数据    | ROE/净利率/毛利率等（备用）   |</span>
-<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a><span class="fu">### 数据量</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>获取 **10 只 A 股** 的日线行情数据（2020-01-01 ~ 2026-05-22）</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>完成 **6 步标准化数据清洗流程**</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>通过描述统计、可视化与 **CAPM 回归模型** 分析股票收益特征</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>支持 **CSV / Parquet / SQLite** 三种数据存储格式</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a><span class="fu">## 数据概览</span></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a><span class="fu">### 股票列表</span></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>| 代码 | 名称 | 行业 | 特征 |</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>|------|------|------|------|</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>| 601398 | 工商银行 | 银行 | 最大商业银行，低波动 |</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>| 600036 | 招商银行 | 银行 | 零售银行龙头 |</span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>| 002594 | 比亚迪 | 汽车 | 新能源车领军，高成长 |</span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>| 601633 | 长城汽车 | 汽车 | 自主品牌 SUV 龙头 |</span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>| 000002 | 万科A | 房地产 | 地产龙头，周期下行 |</span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>| 600519 | 贵州茅台 | 白酒 | A股市值第一 |</span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>| 000858 | 五粮液 | 白酒 | 高端白酒第二 |</span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>| 601088 | 中国神华 | 能源 | 煤炭巨头，防御性 |</span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>| 600941 | 中国移动 | 通讯 | 运营商龙头 |</span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>| 002352 | 顺丰控股 | 物流 | 快递龙头 |</span>
 <span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**时间范围**：2020-01-01 ~ 2026-05-22</span>
-<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**股票数量**：10 只</span>
-<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**交易日总数**：~15,000 条（清洗后）</span>
-<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a><span class="fu">## 项目结构</span></span>
-<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a><span class="in">dshw-p01/</span></span>
-<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a><span class="in">├── 01_download.ipynb      # 数据下载</span></span>
-<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a><span class="in">├── 02_clean.ipynb         # 数据清洗（6步 + 三格式存储）</span></span>
-<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a><span class="in">├── 03_analysis.ipynb      # 分析可视化 + CAPM回归</span></span>
-<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a><span class="in">├── data/</span></span>
-<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a><span class="in">│   ├── stock/             # 原始股票 CSV</span></span>
-<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a><span class="in">│   ├── index/             # 指数数据</span></span>
-<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a><span class="in">│   ├── macro/             # 宏观数据（CPI, M2）</span></span>
-<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a><span class="in">│   ├── finance/           # 财务数据</span></span>
-<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a><span class="in">│   ├── clean/             # 清洗后数据</span></span>
-<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a><span class="in">│   └── combined/          # 合并数据（CSV + Parquet + SQLite）</span></span>
-<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a><span class="in">├── output/                # 图表输出（4张图 + CAPM回归表）</span></span>
-<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a><span class="in">├── report.html            # 完整分析报告</span></span>
-<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a><span class="in">├── README.md              # 项目说明</span></span>
-<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a><span class="in">├── _quarto.yml            # Quarto 图书配置</span></span>
-<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a><span class="in">├── index.qmd              # 本页面</span></span>
-<span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a><span class="in">├── analysis.qmd           # 分析结果页</span></span>
-<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a><span class="in">└── docs/                  # GitHub Pages 静态站点</span></span>
-<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a><span class="fu">## 运行方式</span></span>
-<span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
-<span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a><span class="co"># 安装依赖</span></span>
-<span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">-r</span> requirements.txt</span>
-<span id="cb3-75"><a href="#cb3-75" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-76"><a href="#cb3-76" aria-hidden="true" tabindex="-1"></a><span class="co"># 依次运行三个 Notebook</span></span>
-<span id="cb3-77"><a href="#cb3-77" aria-hidden="true" tabindex="-1"></a><span class="ex">jupyter</span> nbconvert <span class="at">--to</span> notebook <span class="at">--execute</span> <span class="at">--inplace</span> 01_download.ipynb</span>
-<span id="cb3-78"><a href="#cb3-78" aria-hidden="true" tabindex="-1"></a><span class="ex">jupyter</span> nbconvert <span class="at">--to</span> notebook <span class="at">--execute</span> <span class="at">--inplace</span> 02_clean.ipynb</span>
-<span id="cb3-79"><a href="#cb3-79" aria-hidden="true" tabindex="-1"></a><span class="ex">jupyter</span> nbconvert <span class="at">--to</span> notebook <span class="at">--execute</span> <span class="at">--inplace</span> 03_analysis.ipynb</span>
-<span id="cb3-80"><a href="#cb3-80" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-81"><a href="#cb3-81" aria-hidden="true" tabindex="-1"></a><span class="co"># 生成报告</span></span>
-<span id="cb3-82"><a href="#cb3-82" aria-hidden="true" tabindex="-1"></a><span class="ex">jupyter</span> nbconvert <span class="at">--to</span> html 03_analysis.ipynb <span class="at">--output</span> report.html</span>
-<span id="cb3-83"><a href="#cb3-83" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-84"><a href="#cb3-84" aria-hidden="true" tabindex="-1"></a><span class="co"># 生成在线图书</span></span>
-<span id="cb3-85"><a href="#cb3-85" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render</span>
-<span id="cb3-86"><a href="#cb3-86" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb3-87"><a href="#cb3-87" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-88"><a href="#cb3-88" aria-hidden="true" tabindex="-1"></a><span class="fu">## 存储方式</span></span>
-<span id="cb3-89"><a href="#cb3-89" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-90"><a href="#cb3-90" aria-hidden="true" tabindex="-1"></a>本项目数据以三种格式保存，便于不同场景使用：</span>
-<span id="cb3-91"><a href="#cb3-91" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-92"><a href="#cb3-92" aria-hidden="true" tabindex="-1"></a>| 格式     | 文件                         | 大小     | 适用场景           |</span>
-<span id="cb3-93"><a href="#cb3-93" aria-hidden="true" tabindex="-1"></a>|---------|------------------------------|----------|--------------------|</span>
-<span id="cb3-94"><a href="#cb3-94" aria-hidden="true" tabindex="-1"></a>| CSV     | <span class="in">`data/combined/combined_data.csv`</span> | ~2.6MB | 通用 / 人类可读    |</span>
-<span id="cb3-95"><a href="#cb3-95" aria-hidden="true" tabindex="-1"></a>| Parquet | <span class="in">`data/combined/combined_data.parquet`</span> | ~0.9MB | 大数据 / 列式读取  |</span>
-<span id="cb3-96"><a href="#cb3-96" aria-hidden="true" tabindex="-1"></a>| SQLite  | <span class="in">`data/combined/combined_data.db`</span>    | ~2.3MB | 数据库 / SQL 查询  |</span>
-<span id="cb3-97"><a href="#cb3-97" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-98"><a href="#cb3-98" aria-hidden="true" tabindex="-1"></a><span class="fu">## 分析框架</span></span>
-<span id="cb3-99"><a href="#cb3-99" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-102"><a href="#cb3-102" aria-hidden="true" tabindex="-1"></a><span class="in">```{mermaid}</span></span>
-<span id="cb3-103"><a href="#cb3-103" aria-hidden="true" tabindex="-1"></a><span class="in">graph LR</span></span>
-<span id="cb3-104"><a href="#cb3-104" aria-hidden="true" tabindex="-1"></a><span class="in">    A[10只A股日线] --&gt; B[6步数据清洗]</span></span>
-<span id="cb3-105"><a href="#cb3-105" aria-hidden="true" tabindex="-1"></a><span class="in">    B --&gt; C[描述统计]</span></span>
-<span id="cb3-106"><a href="#cb3-106" aria-hidden="true" tabindex="-1"></a><span class="in">    B --&gt; D[可视化4图]</span></span>
-<span id="cb3-107"><a href="#cb3-107" aria-hidden="true" tabindex="-1"></a><span class="in">    B --&gt; E[CAPM回归]</span></span>
-<span id="cb3-108"><a href="#cb3-108" aria-hidden="true" tabindex="-1"></a><span class="in">    C --&gt; F[分析报告]</span></span>
-<span id="cb3-109"><a href="#cb3-109" aria-hidden="true" tabindex="-1"></a><span class="in">    D --&gt; F</span></span>
-<span id="cb3-110"><a href="#cb3-110" aria-hidden="true" tabindex="-1"></a><span class="in">    E --&gt; F</span></span>
-<span id="cb3-111"><a href="#cb3-111" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a><span class="fu">### 数据来源</span></span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>| 数据类型 | 来源 | 说明 |</span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a>|---------|------|------|</span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a>| 个股日线（OHLCVA） | **BaoStock** | 前复权价格、成交量、成交额、换手率等 |</span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a>| 沪深300 指数 | **BaoStock** | 日线收盘价，CAPM 市场组合代理 |</span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a>| CPI 月度同比 | **AKShare** | 国家统计局宏观数据 |</span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a>| M2 月度同比 | **AKShare** | 货币供应量数据 |</span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a>| 财务指标 | 合成数据 | ROE / 净利率 / 毛利率（API 受限备用） |</span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a><span class="fu">### 数据规模</span></span>
+<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a>| 维度 | 数值 |</span>
+<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a>|------|------|</span>
+<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a>| 时间范围 | 2020-01-01 ~ 2026-05-22 |</span>
+<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a>| 股票数量 | 10 只（覆盖 7 个行业） |</span>
+<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a>| 日度观测 | ~15,000 条（清洗后） |</span>
+<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a>| 输出图表 | 5 张（含 CAPM Beta 点图） |</span>
+<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a><span class="fu">## 项目结构</span></span>
+<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a><span class="in">dshw-p01/</span></span>
+<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a><span class="in">├── 01_download.ipynb      # 数据下载（BaoStock + AKShare）</span></span>
+<span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a><span class="in">├── 02_clean.ipynb         # 6步清洗 + 三格式存储（CSV/Parquet/SQLite）</span></span>
+<span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a><span class="in">├── 03_analysis.ipynb      # 描述统计 + 5张图 + CAPM回归 + 讨论</span></span>
+<span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a><span class="in">├── data/</span></span>
+<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a><span class="in">│   ├── stock/             # 原始股票 CSV</span></span>
+<span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a><span class="in">│   ├── index/             # 指数数据</span></span>
+<span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a><span class="in">│   ├── macro/             # 宏观数据（CPI, M2）</span></span>
+<span id="cb3-75"><a href="#cb3-75" aria-hidden="true" tabindex="-1"></a><span class="in">│   ├── finance/           # 财务数据</span></span>
+<span id="cb3-76"><a href="#cb3-76" aria-hidden="true" tabindex="-1"></a><span class="in">│   ├── clean/             # 清洗后数据</span></span>
+<span id="cb3-77"><a href="#cb3-77" aria-hidden="true" tabindex="-1"></a><span class="in">│   └── combined/          # 合并数据（CSV + Parquet + SQLite）</span></span>
+<span id="cb3-78"><a href="#cb3-78" aria-hidden="true" tabindex="-1"></a><span class="in">├── output/                # 图表输出 + CAPM 回归表</span></span>
+<span id="cb3-79"><a href="#cb3-79" aria-hidden="true" tabindex="-1"></a><span class="in">├── report.html            # 完整分析报告（图片 base64 嵌入）</span></span>
+<span id="cb3-80"><a href="#cb3-80" aria-hidden="true" tabindex="-1"></a><span class="in">├── docs/                  # Quarto 渲染 → GitHub Pages 站点</span></span>
+<span id="cb3-81"><a href="#cb3-81" aria-hidden="true" tabindex="-1"></a><span class="in">├── README.md              # 项目说明</span></span>
+<span id="cb3-82"><a href="#cb3-82" aria-hidden="true" tabindex="-1"></a><span class="in">├── _quarto.yml            # Quarto 图书配置</span></span>
+<span id="cb3-83"><a href="#cb3-83" aria-hidden="true" tabindex="-1"></a><span class="in">├── index.qmd              # 本页面</span></span>
+<span id="cb3-84"><a href="#cb3-84" aria-hidden="true" tabindex="-1"></a><span class="in">└── analysis.qmd           # 分析结果页</span></span>
+<span id="cb3-85"><a href="#cb3-85" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb3-86"><a href="#cb3-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-87"><a href="#cb3-87" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb3-88"><a href="#cb3-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-89"><a href="#cb3-89" aria-hidden="true" tabindex="-1"></a><span class="fu">## 运行方式</span></span>
+<span id="cb3-90"><a href="#cb3-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-91"><a href="#cb3-91" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
+<span id="cb3-92"><a href="#cb3-92" aria-hidden="true" tabindex="-1"></a><span class="fu">### 环境要求</span></span>
+<span id="cb3-93"><a href="#cb3-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-94"><a href="#cb3-94" aria-hidden="true" tabindex="-1"></a>Python 3.11+，依赖包见 <span class="in">`requirements.txt`</span>。首次运行需安装 BaoStock 和 AKShare。</span>
+<span id="cb3-95"><a href="#cb3-95" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb3-96"><a href="#cb3-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-97"><a href="#cb3-97" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
+<span id="cb3-98"><a href="#cb3-98" aria-hidden="true" tabindex="-1"></a><span class="co"># ① 安装依赖</span></span>
+<span id="cb3-99"><a href="#cb3-99" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">-r</span> requirements.txt</span>
+<span id="cb3-100"><a href="#cb3-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-101"><a href="#cb3-101" aria-hidden="true" tabindex="-1"></a><span class="co"># ② 依次运行三个 Notebook</span></span>
+<span id="cb3-102"><a href="#cb3-102" aria-hidden="true" tabindex="-1"></a><span class="ex">jupyter</span> nbconvert <span class="at">--to</span> notebook <span class="at">--execute</span> <span class="at">--inplace</span> 01_download.ipynb</span>
+<span id="cb3-103"><a href="#cb3-103" aria-hidden="true" tabindex="-1"></a><span class="ex">jupyter</span> nbconvert <span class="at">--to</span> notebook <span class="at">--execute</span> <span class="at">--inplace</span> 02_clean.ipynb</span>
+<span id="cb3-104"><a href="#cb3-104" aria-hidden="true" tabindex="-1"></a><span class="ex">jupyter</span> nbconvert <span class="at">--to</span> notebook <span class="at">--execute</span> <span class="at">--inplace</span> 03_analysis.ipynb</span>
+<span id="cb3-105"><a href="#cb3-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-106"><a href="#cb3-106" aria-hidden="true" tabindex="-1"></a><span class="co"># ③ 生成最终报告</span></span>
+<span id="cb3-107"><a href="#cb3-107" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> <span class="at">-m</span> jupyter nbconvert <span class="at">--to</span> html 03_analysis.ipynb <span class="dt">\</span></span>
+<span id="cb3-108"><a href="#cb3-108" aria-hidden="true" tabindex="-1"></a>    <span class="at">--output</span> report.html <span class="at">--no-input</span> <span class="at">--embed-images</span></span>
+<span id="cb3-109"><a href="#cb3-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-110"><a href="#cb3-110" aria-hidden="true" tabindex="-1"></a><span class="co"># ④ 生成在线图书</span></span>
+<span id="cb3-111"><a href="#cb3-111" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render</span>
+<span id="cb3-112"><a href="#cb3-112" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb3-113"><a href="#cb3-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-114"><a href="#cb3-114" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb3-115"><a href="#cb3-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-116"><a href="#cb3-116" aria-hidden="true" tabindex="-1"></a><span class="fu">## 存储方式对比</span></span>
+<span id="cb3-117"><a href="#cb3-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-118"><a href="#cb3-118" aria-hidden="true" tabindex="-1"></a>| 格式 | 文件 | 大小 | 适用场景 |</span>
+<span id="cb3-119"><a href="#cb3-119" aria-hidden="true" tabindex="-1"></a>|------|------|------|----------|</span>
+<span id="cb3-120"><a href="#cb3-120" aria-hidden="true" tabindex="-1"></a>| **CSV** | <span class="in">`data/combined/combined_data.csv`</span> | ~2.6 MB | 通用、人类可读 |</span>
+<span id="cb3-121"><a href="#cb3-121" aria-hidden="true" tabindex="-1"></a>| **Parquet** | <span class="in">`data/combined/combined_data.parquet`</span> | ~0.9 MB | 大数据、列式读取、速度快 |</span>
+<span id="cb3-122"><a href="#cb3-122" aria-hidden="true" tabindex="-1"></a>| **SQLite** | <span class="in">`data/combined/combined_data.db`</span> | ~2.3 MB | SQL 查询、多表关联 |</span>
+<span id="cb3-123"><a href="#cb3-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-124"><a href="#cb3-124" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
+<span id="cb3-125"><a href="#cb3-125" aria-hidden="true" tabindex="-1"></a>三种格式已全部在 <span class="in">`02_clean.ipynb`</span> 中生成并对比，详见 Notebook 输出。</span>
+<span id="cb3-126"><a href="#cb3-126" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb3-127"><a href="#cb3-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-128"><a href="#cb3-128" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb3-129"><a href="#cb3-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-130"><a href="#cb3-130" aria-hidden="true" tabindex="-1"></a><span class="fu">## 分析框架</span></span>
+<span id="cb3-131"><a href="#cb3-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-134"><a href="#cb3-134" aria-hidden="true" tabindex="-1"></a><span class="in">```{mermaid}</span></span>
+<span id="cb3-135"><a href="#cb3-135" aria-hidden="true" tabindex="-1"></a><span class="in">graph LR</span></span>
+<span id="cb3-136"><a href="#cb3-136" aria-hidden="true" tabindex="-1"></a><span class="in">    A["📊 10只A股日线&lt;br/&gt;BaoStock"] --&gt; B["🔧 6步清洗&lt;br/&gt;缺失→类型→去重→异常"]</span></span>
+<span id="cb3-137"><a href="#cb3-137" aria-hidden="true" tabindex="-1"></a><span class="in">    B --&gt; C["📈 描述统计"]</span></span>
+<span id="cb3-138"><a href="#cb3-138" aria-hidden="true" tabindex="-1"></a><span class="in">    B --&gt; D["📉 可视化 × 5"]</span></span>
+<span id="cb3-139"><a href="#cb3-139" aria-hidden="true" tabindex="-1"></a><span class="in">    B --&gt; E["📐 CAPM回归"]</span></span>
+<span id="cb3-140"><a href="#cb3-140" aria-hidden="true" tabindex="-1"></a><span class="in">    C --&gt; F["📄 分析报告"]</span></span>
+<span id="cb3-141"><a href="#cb3-141" aria-hidden="true" tabindex="-1"></a><span class="in">    D --&gt; F</span></span>
+<span id="cb3-142"><a href="#cb3-142" aria-hidden="true" tabindex="-1"></a><span class="in">    E --&gt; F</span></span>
+<span id="cb3-143"><a href="#cb3-143" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb3-144"><a href="#cb3-144" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-145"><a href="#cb3-145" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb3-146"><a href="#cb3-146" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-147"><a href="#cb3-147" aria-hidden="true" tabindex="-1"></a><span class="fu">## 核心发现预览</span></span>
+<span id="cb3-148"><a href="#cb3-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-149"><a href="#cb3-149" aria-hidden="true" tabindex="-1"></a>| 发现 | 说明 |</span>
+<span id="cb3-150"><a href="#cb3-150" aria-hidden="true" tabindex="-1"></a>|------|------|</span>
+<span id="cb3-151"><a href="#cb3-151" aria-hidden="true" tabindex="-1"></a>| **尖峰厚尾** | A股日收益率峰度 ~8.5，远高于正态分布（3.0） |</span>
+<span id="cb3-152"><a href="#cb3-152" aria-hidden="true" tabindex="-1"></a>| **行业聚类** | 白酒/银行行业内相关性 &gt; 0.5，跨行业可低至负值 |</span>
+<span id="cb3-153"><a href="#cb3-153" aria-hidden="true" tabindex="-1"></a>| **Beta 分化** | 比亚迪 β=1.26（激进）vs 工商银行 β=0.21（防御） |</span>
+<span id="cb3-154"><a href="#cb3-154" aria-hidden="true" tabindex="-1"></a>| **CAPM 解释力有限** | R² 普遍 &lt; 0.5，单因子模型需扩展 |</span>
+<span id="cb3-155"><a href="#cb3-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-156"><a href="#cb3-156" aria-hidden="true" tabindex="-1"></a>完整分析结果 → <span class="co">[</span><span class="ot">查看分析页面</span><span class="co">](analysis.qmd)</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-      &nbsp;
-    </div>   
+<p>© 2026 许博东 | DS2026 课程作业 P02a</p>
+</div>   
     <div class="nav-footer-center">
-<p>Copyright © 2026 许博东 | DS2026 课程作业</p>
-<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/xubodong/dshw-p01/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/xubodong/dshw-p01/blob/main/index.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div>
-    <div class="nav-footer-right">
       &nbsp;
-    </div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/xubodong/dshw-p01/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/xubodong/dshw-p01/blob/main/index.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div>
+    <div class="nav-footer-right">
+<p>Built with Quarto</p>
+</div>
   </div>
 </footer>
 

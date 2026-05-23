@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "P02a 金融数据获取与清洗分析",
     "section": "",
-    "text": "0.1 项目简介\n本项目是 DS2026 课程作业 P02a 「金融数据获取、清洗与分析」 的完整实现，涵盖从数据下载、清洗、合并到可视化与 CAPM 回归分析的完整流程。",
+    "text": "0.1 项目简介\n本项目是 DS2026 课程作业 P02a「金融数据获取、清洗与分析」 的完整实现，涵盖数据下载、清洗、合并、可视化与 CAPM 回归分析的全流程。",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>金融数据获取与清洗 — 项目总览</span>"
     ]
@@ -14,7 +14,7 @@
     "href": "index.html#项目简介",
     "title": "P02a 金融数据获取与清洗分析",
     "section": "",
-    "text": "0.1.1 研究目标\n\n获取 10 只 A 股股票的日线行情数据（2020-2026）\n完成 6 步标准化数据清洗流程\n通过描述统计、可视化与 CAPM 模型分析股票收益特征",
+    "text": "快速导航\n\n\n\n\n完整分析报告 → report.html（嵌入图片，可独立查看）\nGitHub 仓库 → xubodong/dshw-p01\n分析结果 → analysis.qmd\n\n\n\n\n0.1.1 研究目标\n\n获取 10 只 A 股 的日线行情数据（2020-01-01 ~ 2026-05-22）\n完成 6 步标准化数据清洗流程\n通过描述统计、可视化与 CAPM 回归模型 分析股票收益特征\n支持 CSV / Parquet / SQLite 三种数据存储格式",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>金融数据获取与清洗 — 项目总览</span>"
     ]
@@ -24,7 +24,7 @@
     "href": "index.html#数据概览",
     "title": "P02a 金融数据获取与清洗分析",
     "section": "0.2 数据概览",
-    "text": "0.2 数据概览\n\n0.2.1 股票列表\n\n\n\n代码\n名称\n行业\n说明\n\n\n\n\n601398\n工商银行\n银行\n最大商业银行\n\n\n600036\n招商银行\n银行\n零售银行龙头\n\n\n002594\n比亚迪\n汽车\n新能源车领军\n\n\n601633\n长城汽车\n汽车\n自主品牌 SUV 龙头\n\n\n000002\n万科A\n房地产\n地产龙头\n\n\n600519\n贵州茅台\n白酒\nA股市值第一\n\n\n000858\n五粮液\n白酒\n高端白酒第二\n\n\n601088\n中国神华\n能源\n煤炭巨头\n\n\n600941\n中国移动\n通讯\n运营商龙头\n\n\n002352\n顺丰控股\n物流\n快递龙头\n\n\n\n\n\n0.2.2 数据来源\n\n\n\n数据类型\n来源\n说明\n\n\n\n\n个股日线\nBaoStock\n前复权OHLCVA + 换手率等\n\n\n沪深300指数\nBaoStock\n日线收盘价\n\n\nCPI / M2\nAKShare\n国家统计局月度宏观数据\n\n\n财务指标\n合成数据\nROE/净利率/毛利率等（备用）\n\n\n\n\n\n0.2.3 数据量\n\n时间范围：2020-01-01 ~ 2026-05-22\n股票数量：10 只\n交易日总数：~15,000 条（清洗后）",
+    "text": "0.2 数据概览\n\n0.2.1 股票列表\n\n\n\n代码\n名称\n行业\n特征\n\n\n\n\n601398\n工商银行\n银行\n最大商业银行，低波动\n\n\n600036\n招商银行\n银行\n零售银行龙头\n\n\n002594\n比亚迪\n汽车\n新能源车领军，高成长\n\n\n601633\n长城汽车\n汽车\n自主品牌 SUV 龙头\n\n\n000002\n万科A\n房地产\n地产龙头，周期下行\n\n\n600519\n贵州茅台\n白酒\nA股市值第一\n\n\n000858\n五粮液\n白酒\n高端白酒第二\n\n\n601088\n中国神华\n能源\n煤炭巨头，防御性\n\n\n600941\n中国移动\n通讯\n运营商龙头\n\n\n002352\n顺丰控股\n物流\n快递龙头\n\n\n\n\n\n0.2.2 数据来源\n\n\n\n\n\n\n\n\n数据类型\n来源\n说明\n\n\n\n\n个股日线（OHLCVA）\nBaoStock\n前复权价格、成交量、成交额、换手率等\n\n\n沪深300 指数\nBaoStock\n日线收盘价，CAPM 市场组合代理\n\n\nCPI 月度同比\nAKShare\n国家统计局宏观数据\n\n\nM2 月度同比\nAKShare\n货币供应量数据\n\n\n财务指标\n合成数据\nROE / 净利率 / 毛利率（API 受限备用）\n\n\n\n\n\n0.2.3 数据规模\n\n\n\n维度\n数值\n\n\n\n\n时间范围\n2020-01-01 ~ 2026-05-22\n\n\n股票数量\n10 只（覆盖 7 个行业）\n\n\n日度观测\n~15,000 条（清洗后）\n\n\n输出图表\n5 张（含 CAPM Beta 点图）",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>金融数据获取与清洗 — 项目总览</span>"
     ]
@@ -34,7 +34,7 @@
     "href": "index.html#项目结构",
     "title": "P02a 金融数据获取与清洗分析",
     "section": "0.3 项目结构",
-    "text": "0.3 项目结构\ndshw-p01/\n├── 01_download.ipynb      # 数据下载\n├── 02_clean.ipynb         # 数据清洗（6步 + 三格式存储）\n├── 03_analysis.ipynb      # 分析可视化 + CAPM回归\n├── data/\n│   ├── stock/             # 原始股票 CSV\n│   ├── index/             # 指数数据\n│   ├── macro/             # 宏观数据（CPI, M2）\n│   ├── finance/           # 财务数据\n│   ├── clean/             # 清洗后数据\n│   └── combined/          # 合并数据（CSV + Parquet + SQLite）\n├── output/                # 图表输出（4张图 + CAPM回归表）\n├── report.html            # 完整分析报告\n├── README.md              # 项目说明\n├── _quarto.yml            # Quarto 图书配置\n├── index.qmd              # 本页面\n├── analysis.qmd           # 分析结果页\n└── docs/                  # GitHub Pages 静态站点",
+    "text": "0.3 项目结构\ndshw-p01/\n├── 01_download.ipynb      # 数据下载（BaoStock + AKShare）\n├── 02_clean.ipynb         # 6步清洗 + 三格式存储（CSV/Parquet/SQLite）\n├── 03_analysis.ipynb      # 描述统计 + 5张图 + CAPM回归 + 讨论\n├── data/\n│   ├── stock/             # 原始股票 CSV\n│   ├── index/             # 指数数据\n│   ├── macro/             # 宏观数据（CPI, M2）\n│   ├── finance/           # 财务数据\n│   ├── clean/             # 清洗后数据\n│   └── combined/          # 合并数据（CSV + Parquet + SQLite）\n├── output/                # 图表输出 + CAPM 回归表\n├── report.html            # 完整分析报告（图片 base64 嵌入）\n├── docs/                  # Quarto 渲染 → GitHub Pages 站点\n├── README.md              # 项目说明\n├── _quarto.yml            # Quarto 图书配置\n├── index.qmd              # 本页面\n└── analysis.qmd           # 分析结果页",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>金融数据获取与清洗 — 项目总览</span>"
     ]
@@ -44,17 +44,17 @@
     "href": "index.html#运行方式",
     "title": "P02a 金融数据获取与清洗分析",
     "section": "0.4 运行方式",
-    "text": "0.4 运行方式\n# 安装依赖\npip install -r requirements.txt\n\n# 依次运行三个 Notebook\njupyter nbconvert --to notebook --execute --inplace 01_download.ipynb\njupyter nbconvert --to notebook --execute --inplace 02_clean.ipynb\njupyter nbconvert --to notebook --execute --inplace 03_analysis.ipynb\n\n# 生成报告\njupyter nbconvert --to html 03_analysis.ipynb --output report.html\n\n# 生成在线图书\nquarto render",
+    "text": "0.4 运行方式\n\n\n\n\n\n\n环境要求\n\n\n\nPython 3.11+，依赖包见 requirements.txt。首次运行需安装 BaoStock 和 AKShare。\n\n\n# ① 安装依赖\npip install -r requirements.txt\n\n# ② 依次运行三个 Notebook\njupyter nbconvert --to notebook --execute --inplace 01_download.ipynb\njupyter nbconvert --to notebook --execute --inplace 02_clean.ipynb\njupyter nbconvert --to notebook --execute --inplace 03_analysis.ipynb\n\n# ③ 生成最终报告\npython -m jupyter nbconvert --to html 03_analysis.ipynb \\\n    --output report.html --no-input --embed-images\n\n# ④ 生成在线图书\nquarto render",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>金融数据获取与清洗 — 项目总览</span>"
     ]
   },
   {
-    "objectID": "index.html#存储方式",
-    "href": "index.html#存储方式",
+    "objectID": "index.html#存储方式对比",
+    "href": "index.html#存储方式对比",
     "title": "P02a 金融数据获取与清洗分析",
-    "section": "0.5 存储方式",
-    "text": "0.5 存储方式\n本项目数据以三种格式保存，便于不同场景使用：\n\n\n\n\n\n\n\n\n\n格式\n文件\n大小\n适用场景\n\n\n\n\nCSV\ndata/combined/combined_data.csv\n~2.6MB\n通用 / 人类可读\n\n\nParquet\ndata/combined/combined_data.parquet\n~0.9MB\n大数据 / 列式读取\n\n\nSQLite\ndata/combined/combined_data.db\n~2.3MB\n数据库 / SQL 查询",
+    "section": "0.5 存储方式对比",
+    "text": "0.5 存储方式对比\n\n\n\n\n\n\n\n\n\n格式\n文件\n大小\n适用场景\n\n\n\n\nCSV\ndata/combined/combined_data.csv\n~2.6 MB\n通用、人类可读\n\n\nParquet\ndata/combined/combined_data.parquet\n~0.9 MB\n大数据、列式读取、速度快\n\n\nSQLite\ndata/combined/combined_data.db\n~2.3 MB\nSQL 查询、多表关联\n\n\n\n\n\n\n\n\n\nTip\n\n\n\n三种格式已全部在 02_clean.ipynb 中生成并对比，详见 Notebook 输出。",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>金融数据获取与清洗 — 项目总览</span>"
     ]
@@ -64,7 +64,17 @@
     "href": "index.html#分析框架",
     "title": "P02a 金融数据获取与清洗分析",
     "section": "0.6 分析框架",
-    "text": "0.6 分析框架\n\n\n\n\n\ngraph LR\n    A[10只A股日线] --&gt; B[6步数据清洗]\n    B --&gt; C[描述统计]\n    B --&gt; D[可视化4图]\n    B --&gt; E[CAPM回归]\n    C --&gt; F[分析报告]\n    D --&gt; F\n    E --&gt; F",
+    "text": "0.6 分析框架\n\n\n\n\n\ngraph LR\n    A[\"📊 10只A股日线&lt;br/&gt;BaoStock\"] --&gt; B[\"🔧 6步清洗&lt;br/&gt;缺失→类型→去重→异常\"]\n    B --&gt; C[\"📈 描述统计\"]\n    B --&gt; D[\"📉 可视化 × 5\"]\n    B --&gt; E[\"📐 CAPM回归\"]\n    C --&gt; F[\"📄 分析报告\"]\n    D --&gt; F\n    E --&gt; F",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>金融数据获取与清洗 — 项目总览</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#核心发现预览",
+    "href": "index.html#核心发现预览",
+    "title": "P02a 金融数据获取与清洗分析",
+    "section": "0.7 核心发现预览",
+    "text": "0.7 核心发现预览\n\n\n\n发现\n说明\n\n\n\n\n尖峰厚尾\nA股日收益率峰度 ~8.5，远高于正态分布（3.0）\n\n\n行业聚类\n白酒/银行行业内相关性 &gt; 0.5，跨行业可低至负值\n\n\nBeta 分化\n比亚迪 β=1.26（激进）vs 工商银行 β=0.21（防御）\n\n\nCAPM 解释力有限\nR² 普遍 &lt; 0.5，单因子模型需扩展\n\n\n\n完整分析结果 → 查看分析页面",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>金融数据获取与清洗 — 项目总览</span>"
     ]
@@ -74,7 +84,7 @@
     "href": "analysis.html",
     "title": "2  分析结果",
     "section": "",
-    "text": "2.1 描述性统计\n清洗后的数据包含 10 只股票，时间跨度为 2020 至 2025 年，共 ~15,000 条日度观测记录。",
+    "text": "2.1 描述性统计",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>分析结果</span>"
     ]
@@ -84,7 +94,7 @@
     "href": "analysis.html#描述性统计",
     "title": "2  分析结果",
     "section": "",
-    "text": "2.1.1 日收益率分布特征\n\n\n\n统计量\n均值\n标准差\n偏度\n峰度\n\n\n\n\n日收益率\n~0.05%\n~2.2%\n~-0.3\n~8.5\n\n\n\n收益率呈现 尖峰厚尾 特征，峰度显著高于正态分布（3.0），说明极端波动事件比正太多。",
+    "text": "Note\n\n\n\n清洗后数据涵盖 10 只股票，时间跨度 2020 至 2026 年，共约 15,000 条日度观测记录。\n\n\n\n2.1.1 日收益率分布特征\n\n\n\n统计量\n均值\n标准差\n偏度\n峰度\n\n\n\n\n日收益率\n~0.05%\n~2.2%\n~-0.3\n~8.5\n\n\n\n\n\n\n\n\n\n核心特征：尖峰厚尾\n\n\n\n收益率峰度（~8.5）显著高于正态分布（3.0），说明极端波动事件比正太多。这对风险管理有重要含义——简单正态假设会低估极端风险。",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>分析结果</span>"
     ]
@@ -94,7 +104,7 @@
     "href": "analysis.html#图-110-只股票归一化收盘价走势",
     "title": "2  分析结果",
     "section": "2.2 图 1：10 只股票归一化收盘价走势",
-    "text": "2.2 图 1：10 只股票归一化收盘价走势\n下图展示了 10 只股票自 2020 年以来的归一化价格走势（以 2020-01-01 = 100 为基准）。\n\n\n\n归一化走势\n\n\n解读： 贵州茅台和五粮液在 2020-2021 年涨幅最大，但 2022 年起出现明显回调。银行股（工商银行、招商银行）整体波动较小、走势平缓。比亚迪 2020 年涨幅惊人，反映新能源汽车行业爆发。房地产股（万科A）持续下行，反映行业基本面变化。",
+    "text": "2.2 图 1：10 只股票归一化收盘价走势\n下图以 2020-01-01 = 1 为基准，展示 10 只股票自 2020 年以来的归一化价格走势。同行业股票用相同颜色标注。\n\n\n\n归一化走势\n\n\n\n\n\n\n\n\n关键观察\n\n\n\n\n贵州茅台 & 五粮液：2020-2021 年涨幅最大，但 2022 年起明显回调\n银行股（工商银行、招商银行）：整体波动小、走势平缓，防御属性强\n比亚迪：2020 年涨幅惊人，反映新能源汽车行业爆发\n万科A：持续下行趋势，反映房地产行业基本面恶化",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>分析结果</span>"
     ]
@@ -104,7 +114,7 @@
     "href": "analysis.html#图-2收益率分布直方图-正态拟合",
     "title": "2  分析结果",
     "section": "2.3 图 2：收益率分布直方图 + 正态拟合",
-    "text": "2.3 图 2：收益率分布直方图 + 正态拟合\n\n\n\n收益率分布\n\n\n解读： - 直方图叠加正态分布曲线，直观展示「尖峰厚尾」特征 - 实际分布的尾部比正态分布更厚，中心比正态分布更高 - 这是金融时间序列的典型特征，意味着简单正态假设会低估极端风险",
+    "text": "2.3 图 2：收益率分布直方图 + 正态拟合\n\n\n\n收益率分布\n\n\n\n\n\n\n\n\n尖峰厚尾的直观证据\n\n\n\n\n直方图中心比正态分布更高（尖峰）\n左右两侧尾部比正态分布更厚（厚尾）\n这意味着：极端涨跌停事件比正态分布预测的概率更高",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>分析结果</span>"
     ]
@@ -114,7 +124,7 @@
     "href": "analysis.html#图-3股票收益率相关系数热力图",
     "title": "2  分析结果",
     "section": "2.4 图 3：股票收益率相关系数热力图",
-    "text": "2.4 图 3：股票收益率相关系数热力图\n\n\n\n相关系数热力图\n\n\n解读： 热力图显示： - 行业内高相关：贵州茅台与五粮液（同属白酒）、工商银行与招商银行（同属银行）相关系数较高（&gt; 0.5） - 跨行业低相关：比亚迪与工商银行、中国移动与万科A 之间相关系数较低甚至为负 - 分散投资：低相关性的股票组合有助于降低组合风险",
+    "text": "2.4 图 3：股票收益率相关系数热力图\n\n\n\n相关系数热力图\n\n\n\n\n\n\n\n\n行业聚类效应\n\n\n\n\n\n\n模式\n股票对\n相关系数\n\n\n\n\n同行业高相关\n贵州茅台 ↔︎ 五粮液\n&gt; 0.5\n\n\n同行业高相关\n工商银行 ↔︎ 招商银行\n&gt; 0.5\n\n\n跨行业低相关\n比亚迪 ↔︎ 工商银行\n接近 0 或为负\n\n\n\n\n投资启示：低相关性的股票组合有助于降低非系统性风险。",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>分析结果</span>"
     ]
@@ -124,7 +134,7 @@
     "href": "analysis.html#图-4宏观变量-vs-沪深300",
     "title": "2  分析结果",
     "section": "2.5 图 4：宏观变量 vs 沪深300",
-    "text": "2.5 图 4：宏观变量 vs 沪深300\n\n\n\n宏观 vs 沪深300\n\n\n解读： - CPI 同比与沪深300走势相关性较弱，通胀对股市短期影响不明显 - M2 同比（货币供应量）在 2020-2021 年扩张期与股市走势有一定正相关 - 宏观流动性是影响 A 股走势的重要因素之一",
+    "text": "2.5 图 4：宏观变量 vs 沪深300\n\n\n\n宏观 vs 沪深300\n\n\n\n\n\n\n\n\n宏观与股市关系的初步观察\n\n\n\n\nCPI 同比 与沪深300 走势相关性较弱，通胀对股市短期影响不明显\nM2 同比（货币供应量）在 2020-2021 年扩张期与股市有一定正相关\n宏观流动性 是影响 A 股走势的重要因素之一",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>分析结果</span>"
     ]
@@ -134,17 +144,17 @@
     "href": "analysis.html#capm-回归分析",
     "title": "2  分析结果",
     "section": "2.6 CAPM 回归分析",
-    "text": "2.6 CAPM 回归分析\n使用 Capital Asset Pricing Model (CAPM) 对 10 只股票分别进行回归：\n\\[\nR_i - R_f = \\alpha_i + \\beta_i (R_m - R_f) + \\varepsilon_i\n\\]\n其中 \\(R_i\\) 为个股收益率，\\(R_m\\) 为沪深300指数收益率（市场组合代理），\\(R_f = 0\\)（简化处理）。\n\n2.6.1 回归结果\n\n\n\n\n\n\n\n\n\n\n\n\n\n股票\n代码\n行业\nAlpha\nAlpha p值\nBeta\nBeta 95% CI\nR²\n\n\n\n\n工商银行\n601398\n银行\n0.0003\n0.2674\n0.21\n[0.15, 0.28]\n0.062\n\n\n招商银行\n600036\n银行\n0.0001\n0.8383\n0.88\n[0.80, 0.97]\n0.368\n\n\n比亚迪\n002594\n汽车\n0.0011\n0.0648\n1.26\n[1.15, 1.37]\n0.306\n\n\n长城汽车\n601633\n汽车\n0.0004\n0.5467\n1.16\n[1.05, 1.27]\n0.240\n\n\n万科A\n000002\n房地产\n-0.0014\n0.0056\n1.00\n[0.89, 1.11]\n0.269\n\n\n贵州茅台\n600519\n白酒\n0.0001\n0.7642\n0.95\n[0.87, 1.04]\n0.426\n\n\n五粮液\n000858\n白酒\n-0.0003\n0.4949\n1.26\n[1.16, 1.36]\n0.480\n\n\n中国神华\n601088\n能源\n0.0008\n0.0540\n0.40\n[0.30, 0.49]\n0.063\n\n\n中国移动\n600941\n通讯\n0.0006\n0.1544\n0.29\n[0.21, 0.38]\n0.045\n\n\n顺丰控股\n002352\n物流\n-0.0001\n0.8984\n0.85\n[0.75, 0.96]\n0.252\n\n\n\n注：Alpha 为日度值；Beta 95% CI 为 Wald 置信区间；详细结果见 output/capm_results.csv\n\n\n2.6.2 Beta 系数点图\n\n\n\nBeta点图\n\n\n解读： 横轴 Beta 值，纵轴股票名称，误差棒表示 95% 置信区间（Wald方法）。Beta=1 处红色虚线为市场组合参考线。Beta &gt; 1 表示股票波动大于市场（比亚迪、五粮液、长城汽车），Beta &lt; 1 表示波动小于市场（工商银行、中国移动、中国神华）。\n\n\n2.6.3 讨论问题\n1. Alpha 的经济含义是什么？哪些股票产生了显著的正 Alpha？\nAlpha 衡量个股超越市场基准的超额收益。正 Alpha &gt; 0 表示该股票在相同市场风险（Beta）下获得了高于预期的回报。从回归结果看： - 比亚迪（α=0.0011, p=0.065） 接近显著正的 Alpha，反映新能源行业爆发带来的超额收益 - 中国神华（α=0.0008, p=0.054） 接近显著，反映能源行业周期性获益 - 万科A（α=-0.0014, p=0.0056） 具有显著负 Alpha，反映房地产行业下行压力 - 其余股票 Alpha 不显著，说明其收益主要由市场风险（Beta）解释\n2. Beta 的行业差异说明了什么？\nBeta 反映个股对市场变动的敏感度： - 高 Beta（&gt; 0.8）：比亚迪（1.26）、长城汽车（1.16）、五粮液（1.26）、贵州茅台（0.95）、招商银行（0.88）、万科A（1.00）、顺丰控股（0.85）—— 与整体市场高度共动 - 低 Beta（&lt; 0.5）：中国神华（0.40）、中国移动（0.29）、工商银行（0.21）—— 防御性行业，与宏观波动关联度低 - 这与「周期性 vs 防御性」行业分类一致：汽车/白酒/物流周期性更强，能源/通讯/银行防御性更强\n3. R² 的含义是什么？为什么不同股票的 R² 差异很大？\nR² 表示个股收益率波动中有多少可以被市场收益率解释。五粮液 R² = 0.48 说明约 48% 的波动来自市场因素，剩余 52% 来自公司/行业特异性因素。R² 差异的原因： - 白酒行业（茅台 R²=0.43，五粮液 R²=0.48）受市场情绪影响大，拟合度较高 - 银行股招商银行 R²=0.37，拟合度中等，受行业政策影响 - 中国移动 R²=0.045 极低，可能因为样本期内表现与大盘脱钩，或受港股联动影响 - 大盘蓝筹股受宏观经济和自身经营双重影响，单一市场因子解释力有限",
+    "text": "2.6 CAPM 回归分析\n使用 Capital Asset Pricing Model (CAPM) 对 10 只股票分别进行回归：\n\\[\nR_i - R_f = \\alpha_i + \\beta_i (R_m - R_f) + \\varepsilon_i\n\\]\n其中 \\(R_i\\) 为个股收益率，\\(R_m\\) 为沪深300指数收益率（市场组合代理），\\(R_f = 0\\)（简化处理）。\n\n2.6.1 回归结果\n\n\n\n\n\n\n\n\n\n\n\n\n\n股票\n代码\n行业\nAlpha\nAlpha p值\nBeta\nBeta 95% CI\nR²\n\n\n\n\n工商银行\n601398\n银行\n0.0003\n0.2674\n0.21\n[0.15, 0.28]\n0.062\n\n\n招商银行\n600036\n银行\n0.0001\n0.8383\n0.88\n[0.80, 0.97]\n0.368\n\n\n比亚迪\n002594\n汽车\n0.0011\n0.0648\n1.26\n[1.15, 1.37]\n0.306\n\n\n长城汽车\n601633\n汽车\n0.0004\n0.5467\n1.16\n[1.05, 1.27]\n0.240\n\n\n万科A\n000002\n房地产\n-0.0014\n0.0056\n1.00\n[0.89, 1.11]\n0.269\n\n\n贵州茅台\n600519\n白酒\n0.0001\n0.7642\n0.95\n[0.87, 1.04]\n0.426\n\n\n五粮液\n000858\n白酒\n-0.0003\n0.4949\n1.26\n[1.16, 1.36]\n0.480\n\n\n中国神华\n601088\n能源\n0.0008\n0.0540\n0.40\n[0.30, 0.49]\n0.063\n\n\n中国移动\n600941\n通讯\n0.0006\n0.1544\n0.29\n[0.21, 0.38]\n0.045\n\n\n顺丰控股\n002352\n物流\n-0.0001\n0.8984\n0.85\n[0.75, 0.96]\n0.252\n\n\n\n注：Alpha 为日度值；Beta 95% CI 为 Wald 置信区间；详细结果见 output/capm_results.csv\n\n\n\n2.6.2 Beta 系数点图\n\n\n\nBeta点图\n\n\n\n\n\n\n\n\nBeta 解读\n\n\n\n横轴 Beta 值，纵轴股票名称，误差棒表示 95% 置信区间（Wald 方法）。Beta = 1 处红色虚线为市场组合参考线。\n\n\n\n\n\n\n\n\nBeta 范围\n股票\n含义\n\n\n\n\nβ &gt; 1（激进）\n比亚迪(1.26)、五粮液(1.26)、长城汽车(1.16)\n波动大于市场\n\n\nβ ≈ 1（中性）\n招商银行(0.88)、贵州茅台(0.95)、万科A(1.00)\n与市场同步\n\n\nβ &lt; 1（防御）\n工商银行(0.21)、中国移动(0.29)、中国神华(0.40)\n波动小于市场\n\n\n\n\n\n\n\n\n2.6.3 讨论问题\n\n2.6.3.1 1. Alpha 的经济含义是什么？哪些股票产生了显著的正 Alpha？\n\n\n\n\n\n\nNote\n\n\n\nAlpha 衡量个股超越市场基准的超额收益。\\(\\alpha &gt; 0\\) 表示该股票在相同市场风险（Beta）下获得了高于预期的回报。\n\n\n\n\n\n\n\n\n\n\n\n股票\nAlpha\np值\n解读\n\n\n\n\n比亚迪\n0.0011\n0.065\n接近显著正 Alpha，反映新能源行业爆发\n\n\n中国神华\n0.0008\n0.054\n接近显著，反映能源行业周期性获益\n\n\n万科A\n-0.0014\n0.0056\n显著负 Alpha，反映房地产行业下行压力\n\n\n其余股票\n—\n&gt; 0.05\nAlpha 不显著，收益主要由 Beta 解释\n\n\n\n\n\n2.6.3.2 2. Beta 的行业差异说明了什么？\n\n高 Beta（&gt; 0.8）：比亚迪(1.26)、五粮液(1.26)、长城汽车(1.16)、贵州茅台(0.95)、招商银行(0.88)——与整体市场高度共动，属于顺周期股票\n低 Beta（&lt; 0.5）：中国神华(0.40)、中国移动(0.29)、工商银行(0.21)——防御性行业，与宏观波动关联度低\n这与「周期性 vs 防御性」行业分类一致：汽车/白酒/物流周期性更强，能源/通讯/银行防御性更强\n\n\n\n2.6.3.3 3. R² 的含义是什么？为什么不同股票的 R² 差异很大？\n\\(R^2\\) 表示个股收益率波动中有多少可以被市场收益率解释。\n\n\n\n\n\n\n\n\n股票\nR²\n解读\n\n\n\n\n五粮液\n0.48\n约 48% 波动来自市场因素，52% 来自公司/行业特异性\n\n\n贵州茅台\n0.43\n白酒行业受市场情绪影响大，拟合度较高\n\n\n招商银行\n0.37\n银行股受行业政策影响，单因子解释力中等\n\n\n中国移动\n0.045\n极低，可能被港股联动或自身经营因素主导\n\n\n\n\n\n\n\n\n\n结论\n\n\n\n单一市场因子（CAPM）对 A 股个股的解释力普遍有限（\\(R^2 &lt; 0.5\\)），多因子模型（如 Fama-French 三因子/五因子）可能更合适。",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>分析结果</span>"
     ]
   },
   {
-    "objectID": "analysis.html#结论",
-    "href": "analysis.html#结论",
+    "objectID": "analysis.html#总结",
+    "href": "analysis.html#总结",
     "title": "2  分析结果",
-    "section": "2.7 结论",
-    "text": "2.7 结论\n\nA 股市场呈现典型的「尖峰厚尾」收益率分布特征\n行业内部相关性高，跨行业相关性低 — 支持分散化投资策略\nCAPM 模型中，新能源汽车行业接近显著正 Alpha，地产行业显著负 Alpha\n银行和通讯行业 Beta 较低，适合作为组合的防御性配置\n单一市场因子（CAPM）对 A 股个股的解释力有限（R² 普遍 &lt; 0.5），多因子模型（如 Fama-French）可能更合适\n\n← 返回项目总览",
+    "section": "2.7 总结",
+    "text": "2.7 总结\n\n\n\n\n\n\n\n#\n结论\n\n\n\n\n1\nA 股市场呈现典型的「尖峰厚尾」收益率分布特征\n\n\n2\n行业内部相关性高，跨行业相关性低——支持分散化投资策略\n\n\n3\nCAPM 模型中，新能源汽车行业接近显著正 Alpha，地产行业显著负 Alpha\n\n\n4\n银行和通讯行业 Beta 较低，适合作为组合的防御性配置\n\n\n5\n单一市场因子（CAPM）对 A 股的解释力有限，多因子模型更合适\n\n\n\n← 返回项目总览",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>分析结果</span>"
     ]

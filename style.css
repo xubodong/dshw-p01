@@ -1,32 +1,169 @@
-/* Quarto 图书样式 */
-body {
-  font-family: "Microsoft YaHei", "SimHei", sans-serif;
-}
+/* ============================================================
+   dshw-p01 Quarto Book 样式
+   参考 lianxhcn.github.io/ds2026 风格：干净、清晰、专业
+   ============================================================ */
 
-h1, h2, h3 {
+/* ---- 全局排版 ---- */
+body {
+  font-family: "Microsoft YaHei", "SimHei", -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.75;
   color: #2c3e50;
 }
 
-.callout-note {
-  border-left-color: #3498db;
+/* ---- 标题层级 ---- */
+h1 {
+  font-size: 2em;
+  font-weight: 700;
+  color: #1a1a2e;
+  border-bottom: 3px solid #3498db;
+  padding-bottom: 0.3em;
+  margin-top: 1.2em;
 }
 
+h2 {
+  font-size: 1.5em;
+  font-weight: 600;
+  color: #2c3e50;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 0.2em;
+  margin-top: 1em;
+}
+
+h3 {
+  font-size: 1.2em;
+  font-weight: 600;
+  color: #34495e;
+}
+
+/* ---- 表格 ---- */
 table {
-  font-size: 0.9em;
+  font-size: 0.92em;
+  border-collapse: collapse;
+  margin: 1em 0;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
 }
 
+thead tr {
+  background: #3498db !important;
+  color: white !important;
+}
+
+thead th {
+  padding: 10px 14px;
+  font-weight: 600;
+  border: none;
+}
+
+tbody td {
+  padding: 8px 14px;
+  border-bottom: 1px solid #eee;
+}
+
+tbody tr:nth-child(even) {
+  background: #f8f9fa;
+}
+
+tbody tr:hover {
+  background: #e8f4fd;
+}
+
+/* ---- 图片 ---- */
 img {
   max-width: 100%;
   border-radius: 6px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  margin: 0.8em 0;
 }
 
+/* ---- 代码块 ---- */
 code {
-  background-color: #f8f9fa;
-  padding: 2px 4px;
+  background: #ecf0f1;
+  color: #c0392b;
+  padding: 2px 6px;
   border-radius: 3px;
+  font-size: 0.9em;
+}
+
+pre {
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 6px;
+  padding: 1em;
+  overflow-x: auto;
 }
 
 pre code {
-  background-color: transparent;
+  background: transparent;
+  color: #2c3e50;
+  padding: 0;
+}
+
+/* ---- 引用块 ---- */
+blockquote {
+  border-left: 4px solid #3498db;
+  background: #f0f7ff;
+  margin: 1em 0;
+  padding: 0.8em 1.2em;
+  border-radius: 0 6px 6px 0;
+}
+
+/* ---- Callout 提示框 ---- */
+.callout-note {
+  border-left: 4px solid #3498db;
+  background: #ebf5fb;
+}
+
+.callout-warning {
+  border-left: 4px solid #e67e22;
+  background: #fef5e7;
+}
+
+.callout-tip {
+  border-left: 4px solid #27ae60;
+  background: #eafaf1;
+}
+
+.callout-important {
+  border-left: 4px solid #e74c3c;
+  background: #fdedec;
+}
+
+/* ---- 侧边栏 ---- */
+.sidebar nav[role="doc-toc"] {
+  font-size: 0.9em;
+}
+
+.sidebar nav[role="doc-toc"] a {
+  color: #555;
+  transition: color 0.15s;
+}
+
+.sidebar nav[role="doc-toc"] a:hover {
+  color: #3498db;
+  text-decoration: none;
+}
+
+.sidebar nav[role="doc-toc"] .active {
+  color: #3498db;
+  font-weight: 600;
+}
+
+/* ---- 分页导航 ---- */
+.nav-page {
+  margin-top: 2em;
+  padding-top: 1em;
+  border-top: 1px solid #eee;
+}
+
+/* ---- 页脚 ---- */
+.page-footer {
+  font-size: 0.85em;
+  color: #95a5a6;
+}
+
+/* ---- 响应式 ---- */
+@media (max-width: 768px) {
+  h1 { font-size: 1.6em; }
+  h2 { font-size: 1.3em; }
+  table { font-size: 0.82em; }
 }
