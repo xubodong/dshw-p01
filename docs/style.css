@@ -1,0 +1,32 @@
+/* Quarto 图书样式 */
+body {
+  font-family: "Microsoft YaHei", "SimHei", sans-serif;
+}
+
+h1, h2, h3 {
+  color: #2c3e50;
+}
+
+.callout-note {
+  border-left-color: #3498db;
+}
+
+table {
+  font-size: 0.9em;
+}
+
+img {
+  max-width: 100%;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+code {
+  background-color: #f8f9fa;
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+
+pre code {
+  background-color: transparent;
+}

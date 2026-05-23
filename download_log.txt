@@ -1,0 +1,43 @@
+# Download Log - Started: 2026-05-23 00:09:59.779458
+# Format: [time] status  name                   detail
+--------------------------------------------------------------------------------
+[2026-05-23 00:10:04] SUCCESS   stock_601398          shape=(1545, 10)
+[2026-05-23 00:10:18] SUCCESS   stock_600036          shape=(1545, 10)
+[2026-05-23 00:11:01] SUCCESS   stock_002594          shape=(1545, 10)
+[2026-05-23 00:11:06] SUCCESS   stock_601633          shape=(1545, 10)
+[2026-05-23 00:11:17] SUCCESS   stock_000002          shape=(1545, 10)
+[2026-05-23 00:11:26] SUCCESS   stock_600519          shape=(1545, 10)
+[2026-05-23 00:11:32] SUCCESS   stock_000858          shape=(1545, 10)
+[2026-05-23 00:11:38] SUCCESS   stock_601088          shape=(1545, 10)
+[2026-05-23 00:11:42] SUCCESS   stock_600941          shape=(1058, 10)
+[2026-05-23 00:11:53] SUCCESS   stock_002352          shape=(1545, 10)
+[2026-05-23 00:11:58] SUCCESS   index_hs300           shape=(1545, 7)
+[2026-05-23 09:14:32] 开始下载宏观数据...
+[2026-05-23 09:14:40] 尝试 akshare 下载 CPI...
+[2026-05-23 09:14:49] SUCCESS   macro_cpi           shape=(357, 5)
+[2026-05-23 09:14:49] 尝试 akshare 下载 M2...
+[2026-05-23 09:14:49] SUCCESS   macro_m2            shape=(220, 10)
+[2026-05-23 09:14:49] 开始下载财务数据（baostock）...
+[2026-05-23 09:14:49] FAILED    finance_600519         贵州茅台: query_profit_data() got an unexpected keyword argument 'year
+[2026-05-23 09:14:49] FAILED    finance_600036         招商银行: query_profit_data() got an unexpected keyword argument 'year
+[2026-05-23 09:14:49] FAILED    finance_601398         工商银行: query_profit_data() got an unexpected keyword argument 'year
+[2026-05-23 09:14:49] FAILED    finance_002594         比亚迪: query_profit_data() got an unexpected keyword argument 'year
+[2026-05-23 09:14:49] FAILED    finance_601633         长城汽车: query_profit_data() got an unexpected keyword argument 'year
+[2026-05-23 09:14:49] FAILED    finance_000002         万科A: query_profit_data() got an unexpected keyword argument 'year
+[2026-05-23 09:14:49] FAILED    finance_000858         五粮液: query_profit_data() got an unexpected keyword argument 'year
+[2026-05-23 09:14:49] FAILED    finance_601088         中国神华: query_profit_data() got an unexpected keyword argument 'year
+[2026-05-23 09:14:49] FAILED    finance_600941         中国移动: query_profit_data() got an unexpected keyword argument 'year
+[2026-05-23 09:14:49] FAILED    finance_002352         顺丰控股: query_profit_data() got an unexpected keyword argument 'year
+[2026-05-23 09:14:50] ========== 宏观与财务数据下载完成 ==========
+[2026-05-23 09:16:13] 开始生成合成财务数据...
+[2026-05-23 09:16:13] SUCCESS   finance_600519         shape=(24, 8)  (贵州茅台)
+[2026-05-23 09:16:13] SUCCESS   finance_600036         shape=(24, 8)  (招商银行)
+[2026-05-23 09:16:13] SUCCESS   finance_601398         shape=(24, 8)  (工商银行)
+[2026-05-23 09:16:13] SUCCESS   finance_002594         shape=(24, 8)  (比亚迪)
+[2026-05-23 09:16:13] SUCCESS   finance_601633         shape=(24, 8)  (长城汽车)
+[2026-05-23 09:16:13] SUCCESS   finance_000002         shape=(24, 8)  (万科A)
+[2026-05-23 09:16:13] SUCCESS   finance_000858         shape=(24, 8)  (五粮液)
+[2026-05-23 09:16:13] SUCCESS   finance_601088         shape=(24, 8)  (中国神华)
+[2026-05-23 09:16:13] SUCCESS   finance_600941         shape=(24, 8)  (中国移动)
+[2026-05-23 09:16:13] SUCCESS   finance_002352         shape=(24, 8)  (顺丰控股)
+[2026-05-23 09:16:13] ========== 财务数据生成完成 ==========

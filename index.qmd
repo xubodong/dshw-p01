@@ -1,0 +1,109 @@
+---
+title: "金融数据获取与清洗 — 项目总览"
+---
+
+## 项目简介
+
+本项目是 DS2026 课程作业 P02a **「金融数据获取、清洗与分析」** 的完整实现，涵盖从数据下载、清洗、合并到可视化与 CAPM 回归分析的完整流程。
+
+### 研究目标
+
+- 获取 10 只 A 股股票的日线行情数据（2020-2026）
+- 完成 6 步标准化数据清洗流程
+- 通过描述统计、可视化与 CAPM 模型分析股票收益特征
+
+## 数据概览
+
+### 股票列表
+
+| 代码   | 名称     | 行业   | 说明                 |
+|--------|----------|--------|----------------------|
+| 601398 | 工商银行 | 银行   | 最大商业银行          |
+| 600036 | 招商银行 | 银行   | 零售银行龙头          |
+| 002594 | 比亚迪   | 汽车   | 新能源车领军          |
+| 601633 | 长城汽车 | 汽车   | 自主品牌 SUV 龙头     |
+| 000002 | 万科A    | 房地产 | 地产龙头              |
+| 600519 | 贵州茅台 | 白酒   | A股市值第一           |
+| 000858 | 五粮液   | 白酒   | 高端白酒第二           |
+| 601088 | 中国神华 | 能源   | 煤炭巨头              |
+| 600941 | 中国移动 | 通讯   | 运营商龙头            |
+| 002352 | 顺丰控股 | 物流   | 快递龙头              |
+
+### 数据来源
+
+| 数据类型     | 来源        | 说明                       |
+|-------------|------------|----------------------------|
+| 个股日线     | BaoStock   | 前复权OHLCVA + 换手率等      |
+| 沪深300指数  | BaoStock   | 日线收盘价                  |
+| CPI / M2    | AKShare    | 国家统计局月度宏观数据       |
+| 财务指标     | 合成数据    | ROE/净利率/毛利率等（备用）   |
+
+### 数据量
+
+- **时间范围**：2020-01-01 ~ 2026-05-22
+- **股票数量**：10 只
+- **交易日总数**：~15,000 条（清洗后）
+
+## 项目结构
+
+```
+dshw-p01/
+├── 01_download.ipynb      # 数据下载
+├── 02_clean.ipynb         # 数据清洗（6步 + 三格式存储）
+├── 03_analysis.ipynb      # 分析可视化 + CAPM回归
+├── data/
+│   ├── stock/             # 原始股票 CSV
+│   ├── index/             # 指数数据
+│   ├── macro/             # 宏观数据（CPI, M2）
+│   ├── finance/           # 财务数据
+│   ├── clean/             # 清洗后数据
+│   └── combined/          # 合并数据（CSV + Parquet + SQLite）
+├── output/                # 图表输出（4张图 + CAPM回归表）
+├── report.html            # 完整分析报告
+├── README.md              # 项目说明
+├── _quarto.yml            # Quarto 图书配置
+├── index.qmd              # 本页面
+├── analysis.qmd           # 分析结果页
+└── docs/                  # GitHub Pages 静态站点
+```
+
+## 运行方式
+
+```bash
+# 安装依赖
+pip install -r requirements.txt
+
+# 依次运行三个 Notebook
+jupyter nbconvert --to notebook --execute --inplace 01_download.ipynb
+jupyter nbconvert --to notebook --execute --inplace 02_clean.ipynb
+jupyter nbconvert --to notebook --execute --inplace 03_analysis.ipynb
+
+# 生成报告
+jupyter nbconvert --to html 03_analysis.ipynb --output report.html
+
+# 生成在线图书
+quarto render
+```
+
+## 存储方式
+
+本项目数据以三种格式保存，便于不同场景使用：
+
+| 格式     | 文件                         | 大小     | 适用场景           |
+|---------|------------------------------|----------|--------------------|
+| CSV     | `data/combined/combined_data.csv` | ~2.6MB | 通用 / 人类可读    |
+| Parquet | `data/combined/combined_data.parquet` | ~0.9MB | 大数据 / 列式读取  |
+| SQLite  | `data/combined/combined_data.db`    | ~2.3MB | 数据库 / SQL 查询  |
+
+## 分析框架
+
+```{mermaid}
+graph LR
+    A[10只A股日线] --> B[6步数据清洗]
+    B --> C[描述统计]
+    B --> D[可视化4图]
+    B --> E[CAPM回归]
+    C --> F[分析报告]
+    D --> F
+    E --> F
+```

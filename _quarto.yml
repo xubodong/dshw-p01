@@ -1,0 +1,35 @@
+project:
+  type: book
+  output-dir: docs
+
+book:
+  title: "P02a 金融数据获取与清洗分析"
+  subtitle: "A股10只股票日线数据处理与CAPM回归"
+  author: "许博东 (25210269)"
+  date: "2026-05-23"
+  language: zh
+  chapters:
+    - index.qmd
+    - analysis.qmd
+  page-footer:
+    center: "Copyright © 2026 许博东 | DS2026 课程作业"
+  sidebar:
+    style: docked
+    background: light
+  search: true
+  repo-url: https://github.com/xubodong/dshw-p01
+  repo-actions: [edit, source]
+
+format:
+  html:
+    theme:
+      light: flatly
+      dark: darkly
+    css: style.css
+    code-fold: true
+    code-tools: true
+    toc: true
+    number-sections: true
+    include-in-header:
+      text: |
+        <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>

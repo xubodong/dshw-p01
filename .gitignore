@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+*.log
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+
+# Quarto render cache
+/.quarto/
+
+# Quarto site libs (根目录不应提交)
+site_libs/
+
+# 保留 data/combined/ 下的数据文件（方式B/C提交用）
+!/data/combined/*.parquet
+!/data/combined/*.db
